@@ -1,4 +1,3 @@
-import "dotenv/config";
 import { Client } from "@notionhq/client";
 
 const notionClient = new Client({
