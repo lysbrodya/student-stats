@@ -4,6 +4,10 @@ const notionClient = new Client({
   auth: process.env.NOTION_SECRET,
 });
 
+console.log("ENV CHECK:", {
+  secret: !!process.env.NOTION_SECRET,
+  results: !!process.env.NOTION_RESULTS_ID,
+});
 // ПРОВЕРКА №1: Сразу при загрузке файла
 console.log("ТИП QUERY:", typeof notionClient.databases?.query);
 
