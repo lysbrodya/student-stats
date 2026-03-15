@@ -1,0 +1,52 @@
+/* COLORS */
+$color-white: #ffffff;
+$accent-text-color: #c3c6c9;
+$color-gray-text: #a7a8a3;
+$color-darck-gray-text: #7a828c;
+$blue-text-color: #80b4ff;
+$boder-lists-color: #929ca8;
+$nubers-color: #d9b54a;
+/*background COLORS */
+$background-color-top: linear-gradient(90deg, #282e36, #444c57);
+$background-color-main: #2a2f36;
+// $background-color-body-blog: linear-gradient(
+//   225deg,
+//   rgb(0, 70, 168),
+//   rgb(0, 36, 85) 27%,
+//   rgb(0, 22, 54) 54%,
+//   rgb(0, 26, 63) 79%,
+//   rgb(0, 36, 87)
+// );
+// $bcg-hero: url("/images/bcg/bcg_hero.png");
+// $bcg-advantages: url("/images/bcg/bcg_advantages.png");
+// $background-color-link: #003580;
+
+$bcg-blogs-article: rgb(235, 238, 242);
+$bcg-blogs-container: #dcdfe3;
+$blogs-main-title: rgb(83, 85, 87);
+$courses-bcg-color: rgb(205, 210, 216);
+$bcg-curriculum-btn: rgb(163, 165, 168);
+$color-gray-hover: #888a8c;
+
+$bcg-advertising: rgb(0, 14, 33);
+$accent-button-color: rgb(255, 191, 0);
+/* FONTS */
+$main-font: "Geologica", "Arial", sans-serif;
+/* OTHERS */
+$transition-hover: transform 300ms ease;
+$border-radius: 4px;
+$cubic: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}

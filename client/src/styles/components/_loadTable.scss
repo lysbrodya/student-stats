@@ -1,0 +1,69 @@
+.under_top {
+  margin-top: 40px;
+  h1,
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0%;
+    font-style: normal;
+    color: $color-white;
+  }
+  h1 {
+    padding-right: 16px;
+  }
+  h2 {
+    padding-left: 16px;
+    opacity: 50%;
+    border-left: 1px solid gray;
+  }
+  .under_top-title {
+    display: flex;
+    color: $color-white;
+  }
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: $color-gray-text;
+  margin-top: 32px;
+}
+.blue-title {
+  margin-top: 32px;
+  color: $blue-text-color;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.load-table-item {
+  display: flex;
+  padding: 6px 16px;
+  justify-content: space-between;
+  border: 0.5px solid $boder-lists-color;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  align-items: center;
+}
+.stud-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 500;
+  color: $accent-text-color;
+}
+.right-svg {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+}
+.number {
+  color: $nubers-color;
+  font-family: Geologica;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+.sprints {
+  padding-bottom: 32px;
+}

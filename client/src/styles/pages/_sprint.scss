@@ -1,0 +1,180 @@
+// table {
+//   width: 100%;
+//   border-collapse: separate;
+//   border-spacing: 6px;
+//   table-layout: fixed;
+// }
+
+// #chart-container {
+//   width: 250px;
+//   height: 250px;
+//   margin: 20px auto;
+//   position: relative;
+// }
+// canvas {
+//   display: block;
+//   margin: 0 auto;
+// }
+
+// .table {
+//   width: 100%;
+//   border-collapse: separate;
+//   border-spacing: 6px;
+//   margin: 0 auto;
+//   padding: 0 24px;
+// }
+
+// .thStudent {
+//   color: $color-white;
+//   background-color: #005de0;
+//   padding: 6px 32px;
+//   font-size: 16px;
+//   text-align: left;
+//   padding-left: 14px;
+//   //   margin: 4px;
+// }
+// td {
+//   background: #2f3642;
+//   border-radius: 8px;
+//   padding: 6px 10px;
+//   text-align: center;
+// }
+
+// th {
+//   background: #005de0;
+//   color: white;
+//   border-radius: 8px;
+//   padding: 6px 10px;
+// }
+// .student {
+//   cursor: pointer;
+// }
+
+// .student:hover {
+//   background: rgba(255, 255, 255, 0.05);
+// }
+// .student-index {
+//   color: #f3c969;
+//   font-weight: 600;
+//   text-align: center;
+// }
+// .student-index {
+//   width: 40px;
+// }
+
+// .thStudent {
+//   width: 220px;
+// }
+
+// .cell {
+//   width: 36px;
+//   height: 36px;
+//   background: #e9e9e9;
+//   border-radius: 6px;
+//   font-weight: 600;
+//   transition: 0.3s;
+// }
+// th:first-child {
+//   background-color: #b38e44;
+//   display: block;
+//   margin: 0 auto;
+// }
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 6px;
+  table-layout: fixed;
+}
+
+th {
+  background: #005de0;
+  color: white;
+  border-radius: 8px;
+  //   padding: 6px 10px;
+  font-weight: 300;
+  font-style: Light;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0%;
+}
+
+.thStudent {
+  text-align: left;
+  padding-left: 14px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0%;
+}
+
+.student-index {
+  width: 40px;
+  color: #f3c969;
+  font-weight: 600;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.student {
+  background: #2f3642;
+  text-align: left;
+  padding-left: 14px;
+  cursor: pointer;
+  color: $accent-text-color;
+  font-style: Medium;
+  vertical-align: middle;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0%;
+}
+
+.student:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+td {
+  border-radius: 8px;
+  //   padding: 6px 10px;
+  text-align: center;
+}
+
+.cell {
+  width: 36px;
+  height: 36px;
+  background: #e9e9e9;
+  border-radius: 6px;
+  font-weight: 600;
+  line-height: 36px;
+  padding: 0;
+  transition: 0.3s;
+  font-weight: 300;
+  font-style: Light;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0%;
+}
+.cell:hover {
+  transform: scale(1.1);
+}
+
+.student,
+.student-index {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.th-trophy {
+  background-color: #b38e44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  svg {
+    display: block;
+    margin: 0 auto;
+  }
+}
