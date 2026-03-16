@@ -3,6 +3,23 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
-    "@notionhq/client": "^5.13.0"
-  }
+    "@notionhq/client": "^2.2.5"
+  },
+  "name": "student-stats",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lysbrodya/student-stats.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lysbrodya/student-stats/issues"
+  },
+  "homepage": "https://github.com/lysbrodya/student-stats#readme"
 }
