@@ -1,9 +1,9 @@
-import { getSprintTasks } from "./notion.js";
+import { getSprints } from "./notion.js";
 
 export default async function handler(req, res) {
   try {
-    const tasks = await getSprintTasks();
-    res.status(200).json(tasks);
+    const sprints = await getSprints();
+    res.status(200).json(sprints);
   } catch (e) {
     res.status(500).json({ error: "Notion error" });
   }
