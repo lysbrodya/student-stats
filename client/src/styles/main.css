@@ -521,8 +521,17 @@ td {
   margin-bottom: 6px;
 }
 
-canvas {
-  width: 100%; /* подстраиваем под ширину родителя */
-  height: auto; /* сохраняем пропорции */
-  max-width: 300px; /* можно ограничить для больших экранов */
+.stroke-section {
+  display: flex;
+  gap: 20px;
+}
+
+.stroke-section > div {
+  flex: 1;
+}
+
+.stroke-section canvas {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: block;
 }
