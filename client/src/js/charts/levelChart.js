@@ -14,10 +14,10 @@ export function drawLevelChart(level, time) {
   const fullCircle = Math.PI * 2;
 
   // Внешний круг (level) - зеленый
-  const outerRadius = canvas.width * 0.28;
+  const outerRadius = canvas.width * 0.27;
 
   // const outerRadius = 53;
-  const outerThickness = 21;
+  const outerThickness = canvas.width * 0.13;
   const levelAngle = (level / 100) * fullCircle;
 
   // фон
@@ -40,8 +40,8 @@ export function drawLevelChart(level, time) {
 
   // Внутренний круг (time) - красный, нормализуем time, предположим max 200
   // const innerRadius = 80;
-  const innerRadius = canvas.width * 0.42;
-  const innerThickness = 19;
+  const innerRadius = canvas.width * 0.43;
+  const innerThickness = canvas.width * 0.12;
   const maxTime = 100; // предположим максимум
   const timeAngle = Math.min(time / maxTime, 1) * fullCircle;
 

@@ -16,8 +16,8 @@ export function drawStatsChart(productivity, effectiveness) {
 
   // Внешний круг (effectiveness) - горчичный
   // const outerRadius = 53;
-  const outerRadius = canvas.width * 0.28;
-  const outerThickness = 21;
+  const outerRadius = canvas.width * 0.27;
+  const outerThickness = canvas.width * 0.13;
   const effectivenessAngle = (effectiveness / 100) * fullCircle;
 
   // фон
@@ -46,9 +46,9 @@ export function drawStatsChart(productivity, effectiveness) {
   ctx.stroke();
 
   // Внутренний круг (productivity) - синий
-  const innerRadius = canvas.width * 0.42;
+  const innerRadius = canvas.width * 0.43;
   // const innerRadius = 80;
-  const innerThickness = 19;
+  const innerThickness = canvas.width * 0.12;
   const productivityAngle = (productivity / 100) * fullCircle;
 
   // фон

@@ -60,8 +60,7 @@
     letter-spacing: 0%;
     text-transform: uppercase;
 
-    border-right: 1px solid #646a73;
-    padding-right: 8px;
+    padding-right: 6px;
   }
   .persents-blue {
     color: #579dff;
@@ -76,7 +75,8 @@
     color: #5bc9c0;
   }
   .stats-title {
-    padding-left: 8px;
+    padding-left: 6px;
+    border-left: 1px solid #646a73;
   }
   canvas {
     margin-bottom: 12px;
@@ -175,7 +175,7 @@
 // }
 .stroke-section {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
 .stroke-section > div {

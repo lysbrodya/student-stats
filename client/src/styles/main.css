@@ -408,8 +408,7 @@ td {
   line-height: 1;
   letter-spacing: 0%;
   text-transform: uppercase;
-  border-right: 1px solid #646a73;
-  padding-right: 8px;
+  padding-right: 6px;
 }
 .stroke-section .persents-blue {
   color: #579dff;
@@ -424,7 +423,8 @@ td {
   color: #5bc9c0;
 }
 .stroke-section .stats-title {
-  padding-left: 8px;
+  padding-left: 6px;
+  border-left: 1px solid #646a73;
 }
 .stroke-section canvas {
   margin-bottom: 12px;
@@ -523,7 +523,7 @@ td {
 
 .stroke-section {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
 .stroke-section > div {
