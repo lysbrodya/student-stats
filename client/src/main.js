@@ -87,8 +87,8 @@ async function renderHome() {
 
   studentsContainer.appendChild(thead);
 
-  const students = await getStudents();
-
+  let students = await getStudents();
+  students.sort((a, b) => b.level - a.level);
   studentsMap = {};
   students.forEach((s) => {
     studentsMap[s.id] = s.name;
