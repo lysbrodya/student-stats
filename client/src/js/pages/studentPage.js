@@ -115,4 +115,8 @@ export function renderStudentPage(studentsContainer, student, back) {
 
   drawStatsChart(student.productivity, student.effectiveness);
   drawLevelChart(student.level, student.time);
+  window.addEventListener("resize", () => {
+    drawStatsChart(student.productivity, student.effectiveness);
+    drawLevelChart(student.level, student.time);
+  });
 }

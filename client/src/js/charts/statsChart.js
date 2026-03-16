@@ -1,7 +1,9 @@
 export function drawStatsChart(productivity, effectiveness) {
   const canvas = document.getElementById("statsChart");
-  canvas.width = canvas.clientWidth; // реальная ширина для рисования
-  canvas.height = canvas.clientWidth; // делаем квадрат
+  const size = canvas.parentElement.clientWidth;
+
+  canvas.width = size;
+  canvas.height = size;
   const ctx = canvas.getContext("2d");
 
   const centerX = canvas.width / 2;
@@ -13,7 +15,8 @@ export function drawStatsChart(productivity, effectiveness) {
   const fullCircle = Math.PI * 2;
 
   // Внешний круг (effectiveness) - горчичный
-  const outerRadius = 53;
+  // const outerRadius = 53;
+  const outerRadius = canvas.width * 0.28;
   const outerThickness = 21;
   const effectivenessAngle = (effectiveness / 100) * fullCircle;
 
@@ -43,7 +46,8 @@ export function drawStatsChart(productivity, effectiveness) {
   ctx.stroke();
 
   // Внутренний круг (productivity) - синий
-  const innerRadius = 80;
+  const innerRadius = canvas.width * 0.42;
+  // const innerRadius = 80;
   const innerThickness = 19;
   const productivityAngle = (productivity / 100) * fullCircle;
 

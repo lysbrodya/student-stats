@@ -1,7 +1,9 @@
 export function drawLevelChart(level, time) {
   const canvas = document.getElementById("levelChart");
-  canvas.width = canvas.clientWidth; // реальная ширина для рисования
-  canvas.height = canvas.clientWidth; // делаем квадрат
+  const size = canvas.parentElement.clientWidth;
+
+  canvas.width = size;
+  canvas.height = size;
   const ctx = canvas.getContext("2d");
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
@@ -12,7 +14,9 @@ export function drawLevelChart(level, time) {
   const fullCircle = Math.PI * 2;
 
   // Внешний круг (level) - зеленый
-  const outerRadius = 53;
+  const outerRadius = canvas.width * 0.28;
+
+  // const outerRadius = 53;
   const outerThickness = 21;
   const levelAngle = (level / 100) * fullCircle;
 
@@ -35,7 +39,8 @@ export function drawLevelChart(level, time) {
   ctx.stroke();
 
   // Внутренний круг (time) - красный, нормализуем time, предположим max 200
-  const innerRadius = 80;
+  // const innerRadius = 80;
+  const innerRadius = canvas.width * 0.42;
   const innerThickness = 19;
   const maxTime = 100; // предположим максимум
   const timeAngle = Math.min(time / maxTime, 1) * fullCircle;
