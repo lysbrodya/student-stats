@@ -212,6 +212,11 @@ main {
   margin-bottom: 4px;
   border-radius: 8px;
   align-items: center;
+  cursor: pointer;
+}
+
+.load-table-item:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .stud-title {
@@ -514,4 +519,10 @@ td {
   border-bottom: 0.5px solid #ffffff;
   opacity: 0.25;
   margin-bottom: 6px;
+}
+
+canvas {
+  width: 100%; /* подстраиваем под ширину родителя */
+  height: auto; /* сохраняем пропорции */
+  max-width: 300px; /* можно ограничить для больших экранов */
 }

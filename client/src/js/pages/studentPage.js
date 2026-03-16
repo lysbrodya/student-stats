@@ -52,13 +52,13 @@ export function renderStudentPage(studentsContainer, student, back) {
 <section class="container stroke-section">
   <div>  
     <p class="top-canvas-title">Sprint</p>
-    <canvas id="statsChart"></canvas>
+    <canvas id="statsChart" ></canvas>
     <h3><span class="persents persents-blue">${student.productivity}%</span> <span class="stats-title">продуктивність</span></h3>
      <h3><span class="persents persents-yellow">${student.effectiveness}%</span> <span class="stats-title">ефективність</span></h3>
   </div>
   <div>  
     <p class="top-canvas-title">Стан підготовки</p>
-    <canvas id="levelChart"></canvas>
+    <canvas id="levelChart" ></canvas>
      <h3>
       <span class="persents persents-red">${student.time}%</span> 
       <span class="stats-title">час до ТК</span>
