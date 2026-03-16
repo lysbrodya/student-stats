@@ -42,6 +42,10 @@
   margin-bottom: 4px;
   border-radius: 8px;
   align-items: center;
+  cursor: pointer;
+}
+.load-table-item:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 .stud-title {
   display: flex;
