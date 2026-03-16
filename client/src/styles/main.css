@@ -532,6 +532,6 @@ td {
 
 .stroke-section canvas {
   width: 100%;
-  aspect-ratio: 3/2;
+  aspect-ratio: 5/4;
   display: block;
 }
