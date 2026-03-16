@@ -1,6 +1,9 @@
 export function drawStatsChart(productivity, effectiveness) {
   const canvas = document.getElementById("statsChart");
+  canvas.width = canvas.clientWidth; // реальная ширина для рисования
+  canvas.height = canvas.clientWidth; // делаем квадрат
   const ctx = canvas.getContext("2d");
+
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
 
