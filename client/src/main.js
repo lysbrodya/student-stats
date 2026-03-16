@@ -15,7 +15,7 @@ let studentsMap = {};
 const back = document.createElement("button");
 back.innerHTML = `
     <svg class="right-svg" width="28" height="28">
-      <use href="../../../public/icon-back.svg"></use>
+      <use href="/sprite.svg#icon-back"></use>
     </svg>
     <span>Назад</span>
 `;
@@ -143,7 +143,7 @@ async function renderSprints() {
     </div>
 
     <svg class="right-svg" width="28" height="28">
-      <use href="../../../public/right.svg"></use>
+      <use href="/sprite.svg#icon-right"></use>
     </svg>
     `;
 

@@ -30,17 +30,17 @@ export function renderStudentPage(studentsContainer, student, back) {
     <ul>
       <li>
         <svg width="34" height="34" class="green-cat icon-cat">
-          <use href="../../../public/icon-green-cat.svg"></use>
+          <use href="/sprite.svg#icon-green-cat"></use>
         </svg>
       </li>
             <li>
         <svg width="34" height="34" class="yellow-cat icon-cat">
-          <use href="../../../public/icon-yellow-cat.svg"></use>
+          <use href="/sprite.svg#icon-yellow-cat"></use>
         </svg>
       </li>
             <li>
         <svg width="34" height="34" class="blue-cat icon-cat">
-          <use href="../../../public/icon-blue-cat.svg"></use>
+          <use href="/sprite.svg#icon-blue-cat"></use>
         </svg>
       </li>
     </ul>

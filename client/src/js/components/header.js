@@ -8,7 +8,7 @@ export function initHeader() {
     <div class="header__container container">
         <a class="logo" href="/index.html">         
           <svg class="logo-svg" width="30" height="30">
-            <use href="../../../public/logo.svg"></use>
+            <use href="/sprite.svg#icon-logo"></use>
           </svg>
         </a>
         <p>ART OSVITA</p>

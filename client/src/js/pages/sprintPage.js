@@ -53,7 +53,7 @@ export function renderSprintPage(
   thIndex.classList.add("th-trophy");
   thIndex.innerHTML = `
 <svg width="22" height="22">
-  <use href="../../../public/icon-trophy.svg"></use>
+  <use href="/sprite.svg#icon-trophy"></use>
 </svg>
 `;
   headerRow.appendChild(thIndex);

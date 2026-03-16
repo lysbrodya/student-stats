@@ -7,7 +7,7 @@ export function createStudentRow(student, onClick) {
   <p>${student.name}</p>
 </div>
           <svg class="right-svg" width="28" height="28">
-            <use href="../../../public/right.svg"></use>
+            <use href="/sprite.svg#icon-right"></use>
           </svg>
 `;
 
