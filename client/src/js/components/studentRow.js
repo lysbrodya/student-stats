@@ -11,7 +11,6 @@ export function createStudentRow(student, onClick) {
           </svg>
 `;
 
-  // li.onclick = () => onClick(student);
   li.addEventListener("click", () => onClick(student));
   return li;
 }
