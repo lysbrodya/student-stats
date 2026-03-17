@@ -30,15 +30,15 @@ export async function getResults() {
 
       level: p["Рівень підготовки %"]?.rollup?.array?.[0]?.formula?.number ?? 0,
 
-      F: p["Ф - фігуратив"]?.rollup?.array?.[0]?.number ?? 0,
+      A: p["A"]?.rollup?.array?.[0]?.number ?? 0,
 
-      K: p["К"]?.rollup?.array?.[0]?.number ?? 0,
+      B: p["B"]?.rollup?.array?.[0]?.number ?? 0,
 
-      P: p["П"]?.rollup?.array?.[0]?.number ?? 0,
+      C: p["C"]?.rollup?.array?.[0]?.number ?? 0,
 
-      T: p["Т"]?.rollup?.array?.[0]?.number ?? 0,
+      D: p["D"]?.rollup?.array?.[0]?.number ?? 0,
 
-      V: p["В"]?.rollup?.array?.[0]?.number ?? 0,
+      E: p["E"]?.rollup?.array?.[0]?.number ?? 0,
 
       time: p["time"]?.number ?? 0,
     };

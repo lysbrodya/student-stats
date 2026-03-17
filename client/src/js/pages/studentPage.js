@@ -76,38 +76,41 @@ export function renderStudentPage(studentsContainer, student, back) {
 <p class="top-canvas-title">Оцінки за модулі:</p>
 <ul>
 <li>
-  <p class="letter">Ф</p>
-  <p class="letter-title">Фігуративна композиція,
-    <br/> тональна мапа</p><span class="line-leter">
-  </span> <span class="leter-persent">${student.F}</span></li>
-<li><p class="letter">К</p><p class="letter-title">Колористика</p><span class="line-leter"></span> <span class="leter-persent"> ${student.K}</span></li>
-<li><p class="letter">П</p><p class="letter-title">Природний мотив</p><span class="line-leter"></span> <span class="leter-persent">${student.P}</span></li>
-<li><p class="letter">Т</p><p class="letter-title">Типографічний елемент</p><span class="line-leter"></span> <span class="leter-persent">${student.T}</span></li>
-<li><p class="letter">В</p><p class="letter-title">Практичне виконання </p><span class="line-leter"></span> <span class="leter-persent">${student.V}</span></li>
+  <p class="letter">A</p>
+  <p class="letter-title">Лінійно-конструктивна,
+    <br/> побудова</p><span class="line-leter">
+  </span> <span class="leter-persent">${student.A}</span></li>
+<li><p class="letter">B</p><p class="letter-title">Повітряна перспектива</p><span class="line-leter"></span> <span class="leter-persent"> ${student.B}</span></li>
+<li><p class="letter">C</p><p class="letter-title">Світло-тіньова побудова</p><span class="line-leter"></span> <span class="leter-persent">${student.C}</span></li>
+<li><p class="letter">D</p><p class="letter-title">Штрих та технічне виконання</p><span class="line-leter"></span> <span class="leter-persent">${student.D}</span></li>
+<li><p class="letter">E</p><p class="letter-title">Пропорції</p><span class="line-leter"></span> <span class="leter-persent">${student.E}</span></li>
+
+${student.F ? `<li><p class="letter">F</p><p class="letter-title">Композиція</p><span class="line-leter"></span> <span class="leter-persent">${student.F}</span></li>` : ``}
 </ul>
 </div>
       <div class="midle-scors">
-        <div>
-          <p class="midle-scors_top">ФТВ</p>
-          <p class="midle-scors_midle">${parseInt((student.F + student.T + student.V) / 3)}</p>
-          <span class=""></span>
-          <p>Ахроматика та літера</p>
-        </div>
-        <div>
-          <p class="midle-scors_top">ФКТВ</p>
-          <p class="midle-scors_midle">${parseInt((student.F + student.K + student.T + student.V) / 4)}</p>
-          <span class=""></span>
-          <p>Хроматика та літера</p>
-        </div>
-        <div>
-          <p class="midle-scors_top">ФКПВ</p>
-          <p class="midle-scors_midle">${parseInt((student.F + student.K + student.P + student.V) / 4)}</p>
-          <span class=""></span>
-          <p>Хроматика та природний мотив</p>
-        </div>
+      <p class="midle-scors-general">середній бал <span class="midle-scors_num">${parseInt((student.A + student.B + student.C + student.D + student.E) / 5)}</span></p>
+      </div>
 </section>
 `;
-
+  // <div>
+  //   <p class="midle-scors_top">ФТВ</p>
+  //   <p class="midle-scors_midle">${parseInt((student.A + student.B + student.C) / 3)}</p>
+  //   <span class=""></span>
+  //   <p>Ахроматика та літера</p>
+  // </div>
+  // <div>
+  //   <p class="midle-scors_top">ФКТВ</p>
+  //   <p class="midle-scors_midle">${parseInt((student.F + student.K + student.T + student.V) / 4)}</p>
+  //   <span class=""></span>
+  //   <p>Хроматика та літера</p>
+  // </div>
+  // <div>
+  //   <p class="midle-scors_top">ФКПВ</p>
+  //   <p class="midle-scors_midle">${parseInt((student.F + student.K + student.P + student.V) / 4)}</p>
+  //   <span class=""></span>
+  //   <p>Хроматика та природний мотив</p>
+  // </div>
   studentsContainer.appendChild(top);
   studentsContainer.appendChild(back);
   studentsContainer.appendChild(undertop);

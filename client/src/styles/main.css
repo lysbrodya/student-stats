@@ -528,6 +528,29 @@ td {
   margin-bottom: 6px;
 }
 
+.midle-scors-general {
+  border: 0.5px solid rgb(146, 156, 168);
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Geologica;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.midle-scors_num {
+  font-weight: 600;
+  font-size: 32px;
+  color: rgb(217, 181, 74);
+  line-height: 0.7;
+}
+
 .stroke-section {
   display: flex;
   gap: 12px;
