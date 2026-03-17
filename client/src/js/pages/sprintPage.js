@@ -112,13 +112,13 @@ export function renderSprintPage(
   const colgroup = document.createElement("colgroup");
 
   colgroup.innerHTML = `
-  <col style="width:40px">
+  <col style="width:30px">
   <col style="width:auto">
-  <col style="width:36px">
-  <col style="width:36px">
-  <col style="width:36px">
-  <col style="width:36px">
-  <col style="width:36px">
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
 `;
 
   table.appendChild(colgroup);

@@ -1,17 +1,17 @@
 .table {
-  width: calc(100% + 8px);
-  margin-left: -4px;
+  width: calc(100% + 4px);
+  margin-left: -2px;
   // margin-right: -6px;
   border-collapse: separate;
-  border-spacing: 4px;
+  border-spacing: 2px;
   table-layout: fixed;
 }
-td,
-th {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+// td,
+// th {
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+// }
 th {
   background: #005de0;
   color: white;
@@ -31,6 +31,7 @@ th {
   font-size: 16px;
   line-height: 1;
   letter-spacing: 0%;
+  min-width: 110px;
 }
 
 .student-index {
@@ -71,8 +72,7 @@ td {
 }
 
 .cell {
-  width: 36px;
-  height: 36px;
+  height: 30px;
   background: #e9e9e9;
   border-radius: 6px;
   font-weight: 600;
@@ -98,7 +98,7 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 4px;
+  padding: 3px 0;
   svg {
     display: block;
     margin: 0 auto;
