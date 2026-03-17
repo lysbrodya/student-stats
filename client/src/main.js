@@ -14,7 +14,7 @@ let studentsMap = {};
 
 const back = document.createElement("button");
 back.innerHTML = `
-    <svg class="right-svg" width="11.5" height="11.5">
+    <svg class="left-svg" width="11.5" height="11.5">
       <use href="/sprite.svg#icon-back"></use>
     </svg>
     <span>Назад</span>

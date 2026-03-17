@@ -94,7 +94,7 @@ main {
   padding-left: 6px;
 }
 
-.right-svg {
+.left-svg {
   display: flex;
   align-items: center;
 }
@@ -212,7 +212,7 @@ main {
 
 .load-table-item {
   display: flex;
-  padding: 1px 16px;
+  padding: 2px 16px;
   justify-content: space-between;
   border: 0.5px solid #929ca8;
   margin-bottom: 4px;
@@ -231,6 +231,12 @@ main {
   align-items: center;
   font-weight: 500;
   color: #c3c6c9;
+}
+
+.right-svg {
+  display: flex;
+  align-items: center;
+  padding: 6px;
 }
 
 .number {

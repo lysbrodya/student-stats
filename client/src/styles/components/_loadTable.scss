@@ -37,7 +37,7 @@
 }
 .load-table-item {
   display: flex;
-  padding: 1px 16px;
+  padding: 2px 16px;
   justify-content: space-between;
   border: 0.5px solid $boder-lists-color;
   margin-bottom: 4px;
@@ -55,7 +55,11 @@
   font-weight: 500;
   color: $accent-text-color;
 }
-
+.right-svg {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+}
 .number {
   color: $nubers-color;
   font-family: Geologica;
