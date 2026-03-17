@@ -28,6 +28,14 @@ export function renderSprintPage(
     <div class="line"></div>
     <p class="blue-title">СТАН ПІДГОТОВКИ</p>
   `;
+  const futterTitle = document.createElement("div");
+  futterTitle.classList.add("scors-futter");
+  futterTitle.classList.add("container");
+  futterTitle.innerHTML = `
+    <p class="futter-title">Оцінювання результатів спринту здійснюється за прогресивною шкалою, що відображає якість виконання завдань.</p>
+   <p class="futter-title"></br>Шкала побудована на послідовності чисел Фібоначчі: 1 → 2 → 3 → 5 → 8 → 13. </br>Кожен наступний рівень означає суттєвий стрибок у якості, точності та складності виконання.
+ </p>
+  `;
   // Группируем данные по студентам
   const studentScores = {};
   data.forEach((row) => {
@@ -46,7 +54,19 @@ export function renderSprintPage(
   table.classList.add("container");
   // table.style.borderCollapse = "collapse";
   // table.style.width = "100%";
+  const colgroup = document.createElement("colgroup");
 
+  colgroup.innerHTML = `
+  <col style="width:30px">
+  <col style="width:auto">
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
+`;
+
+  table.appendChild(colgroup);
   // Заголовок
   const thead = document.createElement("thead");
   const headerRow = document.createElement("tr");
@@ -109,23 +129,12 @@ export function renderSprintPage(
     tbody.appendChild(row);
   });
   table.appendChild(tbody);
-  const colgroup = document.createElement("colgroup");
 
-  colgroup.innerHTML = `
-  <col style="width:30px">
-  <col style="width:auto">
-  <col style="width:30px">
-  <col style="width:30px">
-  <col style="width:30px">
-  <col style="width:30px">
-  <col style="width:30px">
-`;
-
-  table.appendChild(colgroup);
   container.appendChild(top);
   container.appendChild(back);
   container.appendChild(undertop);
   container.appendChild(table);
+  container.appendChild(futterTitle);
 
   applyColors();
 }

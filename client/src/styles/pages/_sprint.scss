@@ -104,3 +104,25 @@ td {
     margin: 0 auto;
   }
 }
+.scors-futter {
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  vertical-align: bottom;
+  color: $color-white;
+  p {
+    opacity: 0.5;
+  }
+  display: flex;
+  flex-direction: column;
+}
+.scors-futter::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  border-bottom: 0.5px solid #ffffff;
+  opacity: 0.25;
+  margin-bottom: 32px;
+  margin-top: 32px;
+}

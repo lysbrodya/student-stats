@@ -101,6 +101,10 @@
     color: $color-white;
     display: flex;
     align-items: center;
+    // display: grid;
+    // grid-template-columns: 32px minmax(0, 1fr) minmax(0, auto) 44px;
+    // align-items: center;
+    gap: 12px;
   }
   .letter {
     font-weight: 500;
@@ -111,11 +115,16 @@
     opacity: 25%;
     padding-right: 12px;
     border-right: 0.5px solid #929ca8;
+    width: 32px;
+    text-align: center;
+    flex: 0 0 32px;
+    // flex-shrink: 0;
   }
   .letter-title {
-    padding-left: 12px;
+    // padding-left: 12px;
     font-weight: 300;
-    width: fit-content;
+    // width: fit-content;
+    min-width: 0;
   }
   .leter-persent {
     font-weight: 600;
@@ -125,13 +134,23 @@
     text-align: right;
     vertical-align: bottom;
     opacity: 50%;
+    // width: 44px;
+    flex: 0 0 44px;
+    text-align: right;
+    // flex-shrink: 0;
+    // font-variant-numeric: tabular-nums;
   }
   .line-leter {
-    flex: 1;
+    // flex: 1;
+    // height: 1px;
+    // opacity: 25%;
+    // border-bottom: 0.5px solid $color-white;
+    // margin: 0 12px;
+    min-width: 10px;
+    flex: 1 1 auto;
     height: 1px;
-    opacity: 25%;
     border-bottom: 0.5px solid $color-white;
-    margin: 0 12px;
+    opacity: 0.25;
   }
 }
 .midle-scors {

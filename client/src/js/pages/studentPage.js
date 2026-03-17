@@ -89,28 +89,32 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
 </ul>
 </div>
       <div class="midle-scors">
-      <p class="midle-scors-general">середній бал <span class="midle-scors_num">${parseInt((student.A + student.B + student.C + student.D + student.E) / 5)}</span></p>
+     <div>
+    <p class="midle-scors_top">ADE</p>
+    <p class="midle-scors_midle">${parseInt((student.A + student.D + student.E) / 3)}</p>
+    <span class=""></span>
+    <p>Ахроматика та літера</p>
+  </div>
+  <div>
+    <p class="midle-scors_top">ABDE</p>
+    <p class="midle-scors_midle">${parseInt((student.A + student.B + student.D + student.E) / 4)}</p>
+    <span class=""></span>
+    <p>Хроматика та літера</p>
+  </div>
+  <div>
+    <p class="midle-scors_top">ABCE</p>
+    <p class="midle-scors_midle">${parseInt((student.A + student.B + student.C + student.E) / 4)}</p>
+    <span class=""></span>
+    <p>Хроматика та природний мотив</p>
+  </div>
       </div>
 </section>
 `;
-  // <div>
-  //   <p class="midle-scors_top">ФТВ</p>
-  //   <p class="midle-scors_midle">${parseInt((student.A + student.B + student.C) / 3)}</p>
-  //   <span class=""></span>
-  //   <p>Ахроматика та літера</p>
-  // </div>
-  // <div>
-  //   <p class="midle-scors_top">ФКТВ</p>
-  //   <p class="midle-scors_midle">${parseInt((student.F + student.K + student.T + student.V) / 4)}</p>
-  //   <span class=""></span>
-  //   <p>Хроматика та літера</p>
-  // </div>
-  // <div>
-  //   <p class="midle-scors_top">ФКПВ</p>
-  //   <p class="midle-scors_midle">${parseInt((student.F + student.K + student.P + student.V) / 4)}</p>
-  //   <span class=""></span>
-  //   <p>Хроматика та природний мотив</p>
-  // </div>
+
+  {
+    /* <p class="midle-scors-general">середній бал <span class="midle-scors_num">${parseInt((student.A + student.B + student.C + student.D + student.E) / 5)}</span></p> */
+  }
+
   studentsContainer.appendChild(top);
   studentsContainer.appendChild(back);
   studentsContainer.appendChild(undertop);

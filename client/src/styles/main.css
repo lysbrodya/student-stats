@@ -354,6 +354,32 @@ td {
   margin: 0 auto;
 }
 
+.scors-futter {
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  vertical-align: bottom;
+  color: #ffffff;
+}
+.scors-futter p {
+  opacity: 0.5;
+}
+.scors-futter {
+  display: flex;
+  flex-direction: column;
+}
+
+.scors-futter::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  border-bottom: 0.5px solid #ffffff;
+  opacity: 0.25;
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
 .under_top-item {
   border-radius: 8px;
   background-color: rgba(217, 217, 217, 0.2);
@@ -459,6 +485,7 @@ td {
   color: #ffffff;
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 .costs .letter {
   font-weight: 500;
@@ -469,12 +496,13 @@ td {
   opacity: 25%;
   padding-right: 12px;
   border-right: 0.5px solid #929ca8;
+  width: 32px;
+  text-align: center;
+  flex: 0 0 32px;
 }
 .costs .letter-title {
-  padding-left: 12px;
   font-weight: 300;
-  width: -moz-fit-content;
-  width: fit-content;
+  min-width: 0;
 }
 .costs .leter-persent {
   font-weight: 600;
@@ -484,13 +512,15 @@ td {
   text-align: right;
   vertical-align: bottom;
   opacity: 50%;
+  flex: 0 0 44px;
+  text-align: right;
 }
 .costs .line-leter {
-  flex: 1;
+  min-width: 10px;
+  flex: 1 1 auto;
   height: 1px;
-  opacity: 25%;
   border-bottom: 0.5px solid #ffffff;
-  margin: 0 12px;
+  opacity: 0.25;
 }
 
 .midle-scors {
