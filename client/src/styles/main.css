@@ -254,10 +254,10 @@ main {
 }
 
 .table {
-  width: calc(100% + 12px);
-  margin-left: -6px;
+  width: calc(100% + 8px);
+  margin-left: -4px;
   border-collapse: separate;
-  border-spacing: 6px;
+  border-spacing: 4px;
   table-layout: fixed;
 }
 
