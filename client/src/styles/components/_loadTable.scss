@@ -27,6 +27,7 @@
   height: 1px;
   background-color: $color-gray-text;
   margin-top: 32px;
+  opacity: 0.25;
 }
 .blue-title {
   margin-top: 32px;
@@ -36,7 +37,7 @@
 }
 .load-table-item {
   display: flex;
-  padding: 6px 16px;
+  padding: 1px 16px;
   justify-content: space-between;
   border: 0.5px solid $boder-lists-color;
   margin-bottom: 4px;
@@ -54,11 +55,7 @@
   font-weight: 500;
   color: $accent-text-color;
 }
-.right-svg {
-  display: flex;
-  align-items: center;
-  padding: 6px;
-}
+
 .number {
   color: $nubers-color;
   font-family: Geologica;

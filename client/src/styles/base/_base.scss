@@ -15,6 +15,7 @@
   margin-bottom: 20px;
 }
 body {
+  width: 100%;
   font-family: $main-font;
   font-weight: 400;
   font-size: 12px;
@@ -39,4 +40,13 @@ main {
   background-color: transparent;
   border: none;
   align-items: center;
+  padding: 0;
+  span {
+    padding-left: 6px;
+  }
+}
+.right-svg {
+  display: flex;
+  align-items: center;
+  // margin-left: 6px;
 }

@@ -1,6 +1,7 @@
-
-table {
-  width: 100%;
+.table {
+  width: calc(100% + 12px);
+  margin-left: -6px;
+  // margin-right: -6px;
   border-collapse: separate;
   border-spacing: 6px;
   table-layout: fixed;

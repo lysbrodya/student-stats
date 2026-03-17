@@ -7,7 +7,12 @@ $blue-text-color: #80b4ff;
 $boder-lists-color: #929ca8;
 $nubers-color: #d9b54a;
 /*background COLORS */
-$background-color-top: linear-gradient(90deg, #282e36, #444c57);
+$background-color-top: linear-gradient(
+  90deg,
+  rgba(40, 46, 54, 0.25) 0%,
+  rgba(68, 76, 87, 0.25) 100%
+);
+
 $background-color-main: #2a2f36;
 // $background-color-body-blog: linear-gradient(
 //   225deg,

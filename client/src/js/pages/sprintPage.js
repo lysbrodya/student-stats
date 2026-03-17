@@ -43,6 +43,7 @@ export function renderSprintPage(
   // Создаем таблицу
   const table = document.createElement("table");
   table.classList.add("table");
+  table.classList.add("container");
   // table.style.borderCollapse = "collapse";
   // table.style.width = "100%";
 
