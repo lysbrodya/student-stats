@@ -23,11 +23,17 @@
   .icon-cat {
     padding: 5px;
     border-radius: 4px;
+    background: #3c434d;
+    // fill: #d9d9d9;
+    color: #d9d9d9;
+    // opacity: 0.2;
   }
   .yellow-cat {
     background: linear-gradient(180deg, #a87e00 0%, #423d2c 100%);
     border: 0.1px solid rgba(217, 181, 74, 1);
     box-shadow: 0px 0px 10.01px 0px rgba(217, 181, 74, 1);
+    fill: #d9b54a;
+    color: #d9b54a;
   }
   .green-cat {
     background: linear-gradient(
@@ -37,11 +43,15 @@
     );
     border: 0.1px solid rgba(91, 201, 192, 1);
     box-shadow: 0px 0px 10.01px 0px rgba(91, 201, 192, 1);
+    color: #5bc9c0;
+    fill: #5bc9c0;
   }
   .blue-cat {
     background: linear-gradient(270deg, #0046a8 0%, #0054c9 100%);
     border: 0.1px solid rgba(82, 149, 242, 1);
     box-shadow: 0px 0px 10.01px 0px rgba(82, 149, 242, 1);
+    color: #5295f2;
+    fill: #5295f2;
   }
 }
 .stroke-section {

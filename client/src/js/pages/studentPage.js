@@ -27,25 +27,39 @@ export function renderStudentPage(studentsContainer, student, back) {
       <div class="under_top-item"><p>СТУДЕНТ</p></div>
     </div>
 
-    <ul>
-      <li>
-        <svg width="34" height="34" class="green-cat icon-cat">
-          <use href="/sprite.svg#icon-green-cat"></use>
-        </svg>
-      </li>
-            <li>
-        <svg width="34" height="34" class="yellow-cat icon-cat">
-          <use href="/sprite.svg#icon-yellow-cat"></use>
-        </svg>
-      </li>
-            <li>
-        <svg width="34" height="34" class="blue-cat icon-cat">
-          <use href="/sprite.svg#icon-blue-cat"></use>
-        </svg>
-      </li>
-    </ul>
+<ul class="cats">
+  <li>
+    <svg width="34" height="34" class="icon-cat cat-productivity">
+      <use href="/sprite.svg#icon-gray-cat"></use>
+    </svg>
+  </li>
+  <li>
+    <svg width="34" height="34" class="icon-cat cat-effectiveness">
+      <use href="/sprite.svg#icon-gray-cat"></use>
+    </svg>
+  </li>
+  <li>
+    <svg width="34" height="34" class="icon-cat cat-level">
+      <use href="/sprite.svg#icon-gray-cat"></use>
+    </svg>
+  </li>
+</ul>
   `;
+  const catProductivity = undertop.querySelector(".cat-productivity");
+  const catEffectiveness = undertop.querySelector(".cat-effectiveness");
+  const catLevel = undertop.querySelector(".cat-level");
 
+  if (student.productivity > 60) {
+    catProductivity.classList.add("blue-cat");
+  }
+
+  if (student.effectiveness > 60) {
+    catEffectiveness.classList.add("yellow-cat");
+  }
+
+  if (student.level > 60) {
+    catLevel.classList.add("green-cat");
+  }
   const statsContainer = document.createElement("div");
 
   statsContainer.innerHTML = `

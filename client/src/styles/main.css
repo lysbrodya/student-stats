@@ -408,11 +408,14 @@ td {
 .under_top__st-page .icon-cat {
   padding: 5px;
   border-radius: 4px;
+  background: #3c434d;
+  color: #d9d9d9;
 }
 .under_top__st-page .yellow-cat {
   background: linear-gradient(180deg, #a87e00 0%, #423d2c 100%);
   border: 0.1px solid rgb(217, 181, 74);
   box-shadow: 0px 0px 10.01px 0px rgb(217, 181, 74);
+  color: #d9b54a;
 }
 .under_top__st-page .green-cat {
   background: linear-gradient(180deg, rgba(28, 255, 236, 0.5) 0%, rgba(0, 150, 224, 0.5) 100%);
