@@ -1,8 +1,26 @@
 import { drawStatsChart } from "../charts/statsChart.js";
 import { drawLevelChart } from "../charts/levelChart.js";
+import { getTasks } from "../api/api.js";
+import { applyColors } from "../utils/applyColors.js";
 
-export function renderStudentPage(studentsContainer, student, back) {
+export async function renderStudentPage(studentsContainer, student, back) {
   console.log(student);
+
+  const tasks = await getTasks();
+  const studentTasks = tasks.filter((t) => t.student === student.id);
+  const sprintScores = {};
+
+  studentTasks.forEach((item) => {
+    const sprint = item.sprint;
+    const task = item.task;
+
+    if (!sprintScores[sprint]) {
+      sprintScores[sprint] = {};
+    }
+
+    sprintScores[sprint][task] = item.score;
+  });
+
   studentsContainer.innerHTML = "";
   const fullName = student.name;
 
@@ -128,11 +146,73 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
   {
     /* <p class="midle-scors-general">середній бал <span class="midle-scors_num">${parseInt((student.A + student.B + student.C + student.D + student.E) / 5)}</span></p> */
   }
+  const sectionTable = document.createElement("section");
+  sectionTable.classList.add("section-table", "container");
+  sectionTable.innerHTML = `<h2 class="section-table-title">Результати по спринтах</h2>`;
+  const table = document.createElement("table");
+  table.classList.add("sprints-scores");
+
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  const colgroup = document.createElement("colgroup");
+
+  colgroup.innerHTML = `
+  <col style="width:50px">   <!-- AVG -->
+  <col>   <!-- sprint -->
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
+  <col style="width:30px">
+`;
+
+  table.appendChild(colgroup);
+
+  headerRow.innerHTML = `
+  <th>СБ</th>
+  <th>СПРИНТ</th>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+  <th>4</th>
+  <th>5</th>
+`;
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+
+  Object.keys(sprintScores)
+    .sort((a, b) => Number(a) - Number(b))
+    .forEach((sprint, index) => {
+      const row = document.createElement("tr");
+      const scores = Object.values(sprintScores[sprint]).filter(
+        (s) => s !== undefined && s !== null,
+      );
+      const avg = scores.reduce((sum, s) => sum + s, 0) / scores.length;
+
+      row.innerHTML = `
+  <td class="avg">${avg.toFixed(1)}</td>
+  <td class="sprint-name">Спринт ${sprint}</td>
+  <td class="cell">${sprintScores[sprint]["1"] || ""}</td>
+  <td class="cell">${sprintScores[sprint]["2"] || ""}</td>
+  <td class="cell">${sprintScores[sprint]["3"] || ""}</td>
+  <td class="cell">${sprintScores[sprint]["4"] || ""}</td>
+  <td class="cell">${sprintScores[sprint]["5"] || ""}</td>
+`;
+
+      tbody.appendChild(row);
+    });
+
+  table.appendChild(tbody);
+  sectionTable.appendChild(table);
 
   studentsContainer.appendChild(top);
   studentsContainer.appendChild(back);
   studentsContainer.appendChild(undertop);
   studentsContainer.appendChild(statsContainer);
+  studentsContainer.appendChild(sectionTable);
 
   drawStatsChart(student.productivity, student.effectiveness);
   drawLevelChart(student.level, student.time);
@@ -140,4 +220,5 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
     drawStatsChart(student.productivity, student.effectiveness);
     drawLevelChart(student.level, student.time);
   });
+  applyColors();
 }

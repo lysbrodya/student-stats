@@ -27,6 +27,10 @@
     // fill: #d9d9d9;
     color: #d9d9d9;
     // opacity: 0.2;
+
+    transition:
+      color 0.25s ease,
+      filter 0.25s ease;
   }
   .yellow-cat {
     background: linear-gradient(180deg, #a87e00 0%, #423d2c 100%);
@@ -52,6 +56,10 @@
     box-shadow: 0px 0px 10.01px 0px rgba(82, 149, 242, 1);
     color: #5295f2;
     fill: #5295f2;
+    &:hover {
+      color: #579dff;
+      filter: drop-shadow(0 0 6px #579dff);
+    }
   }
 }
 .stroke-section {

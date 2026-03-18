@@ -253,6 +253,71 @@ main {
   padding-bottom: 32px;
 }
 
+.sprints-scores {
+  width: calc(100% + 4px);
+  margin-left: -2px;
+  border-collapse: separate;
+  border-spacing: 2px;
+  table-layout: fixed;
+}
+.sprints-scores td,
+.sprints-scores th {
+  text-align: center;
+}
+.sprints-scores th {
+  font-size: 14px;
+  font-weight: 400;
+  height: 30px;
+}
+.sprints-scores .avg {
+  background: #2f3642;
+  color: #f3c969;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.sprints-scores .sprint-name {
+  background: #2f3642;
+  color: #fff;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: start;
+  padding: 1px 16px;
+}
+.sprints-scores .cell {
+  height: 30px;
+  width: 30px;
+  background: #e9e9e9;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.sprints-scores .cell:hover {
+  transform: scale(1.1);
+}
+
+.section-table-title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0%;
+  vertical-align: bottom;
+  color: #ffffff;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-table-title::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  border-bottom: 0.5px solid #ffffff;
+  opacity: 0.25;
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
 .table {
   width: calc(100% + 4px);
   margin-left: -2px;
@@ -410,22 +475,32 @@ td {
   border-radius: 4px;
   background: #3c434d;
   color: #d9d9d9;
+  transition: color 0.25s ease, filter 0.25s ease;
 }
 .under_top__st-page .yellow-cat {
   background: linear-gradient(180deg, #a87e00 0%, #423d2c 100%);
   border: 0.1px solid rgb(217, 181, 74);
   box-shadow: 0px 0px 10.01px 0px rgb(217, 181, 74);
+  fill: #d9b54a;
   color: #d9b54a;
 }
 .under_top__st-page .green-cat {
   background: linear-gradient(180deg, rgba(28, 255, 236, 0.5) 0%, rgba(0, 150, 224, 0.5) 100%);
   border: 0.1px solid rgb(91, 201, 192);
   box-shadow: 0px 0px 10.01px 0px rgb(91, 201, 192);
+  color: #5bc9c0;
+  fill: #5bc9c0;
 }
 .under_top__st-page .blue-cat {
   background: linear-gradient(270deg, #0046a8 0%, #0054c9 100%);
   border: 0.1px solid rgb(82, 149, 242);
   box-shadow: 0px 0px 10.01px 0px rgb(82, 149, 242);
+  color: #5295f2;
+  fill: #5295f2;
+}
+.under_top__st-page .blue-cat:hover {
+  color: #579dff;
+  filter: drop-shadow(0 0 6px #579dff);
 }
 
 .stroke-section {
