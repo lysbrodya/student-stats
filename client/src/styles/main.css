@@ -265,23 +265,40 @@ main {
   text-align: center;
 }
 .sprints-scores th {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 300;
   height: 30px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.sprints-scores .sb {
+  color: #ffdc73;
+  background-color: #b38e44;
+  font-weight: 600;
 }
 .sprints-scores .avg {
   background: #2f3642;
-  color: #f3c969;
+  color: #d9b54a;
   font-weight: 600;
   border: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
 .sprints-scores .sprint-name {
   background: #2f3642;
-  color: #fff;
+  color: #c3c6c9;
   font-size: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   text-align: start;
   padding: 1px 16px;
+  font-weight: 500;
+  font-style: Medium;
+  line-height: 1;
+  letter-spacing: 0%;
+  vertical-align: middle;
 }
 .sprints-scores .cell {
   height: 30px;
@@ -316,6 +333,95 @@ main {
   opacity: 0.25;
   margin-bottom: 32px;
   margin-top: 32px;
+}
+
+.comments h2 {
+  color: #80b4ff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.comments {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  border-bottom: 0.5px solid #ffffff;
+  opacity: 0.25;
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
+.comments-slider {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 16px;
+}
+
+.comment-card {
+  min-width: 80%; /* 👈 ключевой момент */
+  max-width: 80%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 16px;
+  border: 0.5px solid rgb(146, 156, 168);
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  vertical-align: bottom;
+  color: rgb(201, 201, 201);
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.comment-title {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.comment-title .comment-task {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: rgb(217, 181, 74);
+}
+.comment-title .comment-task::before {
+  content: "";
+  flex: 1;
+  height: 100%;
+  border-left: 0.5px solid #ffffff;
+  opacity: 0.25;
+  margin: 0 8px;
+}
+
+.comment-date {
+  margin-top: auto;
+  margin-left: auto;
 }
 
 .table {

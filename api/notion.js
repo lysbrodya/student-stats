@@ -68,6 +68,10 @@ export async function getSprintTasks() {
         p["Студенти"]?.relation?.[0]?.id || p["Студенти"]?.select?.id || "",
       score: p["Оцінка"]?.number ?? 0,
       done: p["Виконано"]?.checkbox ?? false,
+      comment:
+        p["Коментар викладача"]?.rich_text?.map((t) => t.plain_text).join("") ||
+        "",
+      date: p["Дата"]?.created_time || "",
     };
   });
 }

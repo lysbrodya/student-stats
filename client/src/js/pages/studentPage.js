@@ -9,17 +9,57 @@ export async function renderStudentPage(studentsContainer, student, back) {
   const tasks = await getTasks();
   const studentTasks = tasks.filter((t) => t.student === student.id);
   const sprintScores = {};
-
+  const commentsData = [];
+  const formatDate = (date) => {
+    if (!date) return "";
+    return new Date(date).toLocaleDateString("uk-UA");
+  };
   studentTasks.forEach((item) => {
     const sprint = item.sprint;
     const task = item.task;
-
+    if (item.comment) {
+      commentsData.push({
+        sprint: item.sprint,
+        task: item.task,
+        comment: item.comment,
+        date: item.date || "",
+      });
+    }
     if (!sprintScores[sprint]) {
       sprintScores[sprint] = {};
     }
 
     sprintScores[sprint][task] = item.score;
+    // console.log(studentTasks.student.comment);
   });
+
+  const comments = document.createElement("div");
+  comments.classList.add("comments", "container");
+
+  comments.innerHTML = `
+  <h2>Коментарі викладача</h2>
+  <div class="comments-slider">
+    ${commentsData
+      .map(
+        (c) => `
+        <div class="comment-card">
+          <p class="comment-title">
+            Спринт ${c.sprint} <span class="comment-task">Завдання ${c.task}</span>
+          </p>
+
+          <p class="comment-text">
+            ${c.comment}
+          </p>
+
+          <p class="comment-date comment-title">
+            ${formatDate(c.date)}
+          </p>
+        </div>
+      `,
+      )
+      .join("")}
+  </div>
+`;
 
   studentsContainer.innerHTML = "";
   const fullName = student.name;
@@ -169,7 +209,7 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
   table.appendChild(colgroup);
 
   headerRow.innerHTML = `
-  <th>СБ</th>
+  <th class="sb">СБ</th>
   <th>СПРИНТ</th>
   <th>1</th>
   <th>2</th>
@@ -212,7 +252,13 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
   studentsContainer.appendChild(back);
   studentsContainer.appendChild(undertop);
   studentsContainer.appendChild(statsContainer);
-  studentsContainer.appendChild(sectionTable);
+  if (Object.keys(sprintScores).length > 0) {
+    studentsContainer.appendChild(sectionTable);
+  }
+
+  if (commentsData.length > 0) {
+    studentsContainer.appendChild(comments);
+  }
 
   drawStatsChart(student.productivity, student.effectiveness);
   drawLevelChart(student.level, student.time);
