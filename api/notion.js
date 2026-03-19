@@ -11,15 +11,24 @@ console.log("ENV CHECK:", {
 // ПРОВЕРКА №1: Сразу при загрузке файла
 console.log("ТИП QUERY:", typeof notionClient.databases?.query);
 
-export async function getResults() {
+export async function getResults(streamId) {
   const databaseId = process.env.NOTION_RESULTS_ID;
 
   const response = await notionClient.databases.query({
     database_id: databaseId,
+    filter: streamId
+      ? {
+          property: "ПОТОКИ КУРСІВ",
+          relation: {
+            contains: streamId,
+          },
+        }
+      : undefined,
   });
 
   return response.results.map((page) => {
     const p = page.properties;
+
     return {
       id: page.id,
       name: p["Name"]?.title?.[0]?.plain_text || "",
@@ -41,6 +50,8 @@ export async function getResults() {
       E: p["E"]?.rollup?.array?.[0]?.number ?? 0,
 
       time: p["time"]?.number ?? 0,
+      course: p["Курс"]?.rollup?.array?.[0]?.plain_text || "",
+      stream: p["ПОТОКИ КУРСІВ"]?.relation?.array?.[0]?.plain_text || "",
     };
   });
 }
@@ -97,6 +108,25 @@ export async function getSprints() {
       score: p["Оцінка з 13"]?.number ?? 0,
 
       done: p["Checkbox"]?.checkbox ?? false,
+    };
+  });
+}
+
+export async function getCourseStreams() {
+  const databaseId = process.env.NOTION_COURSES_STREAMS_ID;
+
+  const response = await notionClient.databases.query({
+    database_id: databaseId,
+  });
+
+  return response.results.map((page) => {
+    const p = page.properties;
+
+    return {
+      id: page.id,
+      name: p["Name"]?.title?.[0]?.plain_text || "",
+      course: p["Курс"]?.select?.name || "",
+      stream: p["Потік"]?.select?.name || "",
     };
   });
 }

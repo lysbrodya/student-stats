@@ -1,9 +1,77 @@
-import { getSprints, getStudents, getStudent, getTasks } from "./js/api/api.js";
+import {
+  getSprints,
+  getStudents,
+  getStudent,
+  getTasks,
+  getStreams,
+} from "./js/api/api.js";
 import { initHeader } from "./js/components/header.js";
 import { applyColors } from "./js/utils/applyColors.js";
 import { renderStudentPage } from "./js/pages/studentPage.js";
 import { renderSprintPage } from "./js/pages/sprintPage.js";
 import { createStudentRow } from "./js/components/studentRow.js";
+
+async function renderStreamsPage() {
+  studentsContainer.innerHTML = "";
+  sprintsContainer.innerHTML = "";
+
+  const wrapper = document.createElement("section");
+  wrapper.classList.add("streams-page");
+
+  wrapper.innerHTML = `
+      <div class="container streams-main-img">
+        <div> <img src="./../public/img/Frame 2087326902.png" alt=""> </div>
+        <h1 class="streams-main-title">Система трекінгу навчального прогресу </br> для студентів Art Osvita</h1>
+      </div>
+    <div class="container">
+<div class="custom-select" id="streamSelect">
+  <div class="select-header">
+    <span class="select-title">Ваш потік</span>
+    <img src="/wite-right.svg" class="select-arrow" />
+  </div>
+
+  <div class="select-dropdown"></div>
+</div>
+    </div>
+  `;
+
+  studentsContainer.appendChild(wrapper);
+
+  const select = document.getElementById("streamSelect");
+  const header = select.querySelector(".select-header");
+  const dropdown = select.querySelector(".select-dropdown");
+  const title = select.querySelector(".select-title");
+
+  const streams = await getStreams();
+
+  streams.forEach((stream) => {
+    const option = document.createElement("div");
+    option.classList.add("select-option");
+    option.textContent = stream.name;
+
+    option.addEventListener("click", () => {
+      title.textContent = stream.name;
+
+      select.classList.remove("open");
+
+      history.pushState({}, "", `?stream=${stream.id}`);
+      router();
+    });
+
+    dropdown.appendChild(option);
+  });
+  header.addEventListener("click", () => {
+    select.classList.toggle("open");
+  });
+  select.addEventListener("change", (e) => {
+    const streamId = e.target.value;
+
+    if (!streamId) return;
+
+    history.pushState({}, "", `?stream=${streamId}`);
+    router();
+  });
+}
 
 const studentsContainer = document.querySelector("#students");
 const sprintsContainer = document.querySelector("#sprints");
@@ -33,6 +101,12 @@ async function router() {
 
   const studentId = params.get("student");
   const sprintName = params.get("sprint");
+  const streamId = params.get("stream");
+
+  if (!streamId) {
+    await renderStreamsPage(); // 👈 НОВАЯ ГЛАВНАЯ
+    return;
+  }
 
   if (studentId) {
     const student = await getStudent(studentId);
@@ -53,42 +127,79 @@ async function router() {
 
 // Студент
 function goStudent(id) {
-  history.pushState({}, "", `?student=${id}`);
+  const params = new URLSearchParams(window.location.search);
+  const streamId = params.get("stream");
+
+  history.pushState({}, "", `?stream=${streamId}&student=${id}`);
+
   router();
 }
 // Спринт
 function goSprint(name) {
-  history.pushState({}, "", `?sprint=${encodeURIComponent(name)}`);
+  const params = new URLSearchParams(window.location.search);
+  const streamId = params.get("stream");
+
+  history.pushState(
+    {},
+    "",
+    `?stream=${streamId}&sprint=${encodeURIComponent(name)}`,
+  );
+
   router();
 }
 // Домой
 function goHome() {
-  history.pushState({}, "", "/");
+  const params = new URLSearchParams(window.location.search);
+  const streamId = params.get("stream");
+
+  history.pushState({}, "", `?stream=${streamId}`);
   router();
 }
 // 5️⃣ Главная страница
 async function renderHome() {
+  const params = new URLSearchParams(window.location.search);
+  const streamId = params.get("stream"); // ✅ СНАЧАЛА
+
+  const streams = await getStreams();
+  const currentStream = streams.find((s) => s.id === streamId);
+
+  let courseName = "";
+  let streamName = "";
+
+  if (currentStream) {
+    const parts = currentStream.name.split(" - ");
+    streamName = parts[0];
+    courseName = parts[1] || "";
+  }
+
   const thead = document.createElement("div");
 
   thead.innerHTML = `
-  <div class="top">
-    <h3>Потоки</h3>
-    <p>Система ефективності</p>
-  </div>
-  <div class="under_top container">
-    <div class="under_top-title">
-      <h1>Курс Композиції</h1>
-      <h2>4 потік</h2>
+    <div class="top">
+      <h3>Потоки</h3>
+      <p>Система ефективності</p>
     </div>
-    <div class="line"></div>
-    <p class="blue-title">СТАН ПІДГОТОВКИ</p>
-  </div>
+    <div class="under_top container">
+      <div class="under_top-title">
+        <h1>${courseName}</h1>
+        <h2>${streamName}</h2>
+      </div>
+      <div class="line"></div>
+      <p class="blue-title">СТАН ПІДГОТОВКИ</p>
+    </div>
   `;
 
   studentsContainer.appendChild(thead);
 
-  let students = await getStudents();
+  let students = await getStudents(streamId);
+
+  if (!Array.isArray(students)) {
+    console.error("API ERROR:", students);
+    students = [];
+  }
+
   students.sort((a, b) => b.level - a.level);
+
   studentsMap = {};
   students.forEach((s) => {
     studentsMap[s.id] = s.name;
@@ -156,7 +267,10 @@ async function renderSprints() {
 }
 // 7️⃣ Рендер страницы спринта
 async function renderSprint(sprintName) {
-  const students = await getStudents();
+  const params = new URLSearchParams(window.location.search);
+  const streamId = params.get("stream");
+
+  const students = await getStudents(streamId);
 
   studentsMap = {};
   students.forEach((s) => {
