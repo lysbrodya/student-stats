@@ -13,14 +13,12 @@ export const getTasks = () => fetch(`${API}/tasks`).then((r) => r.json());
 
 export const getStreams = async () => {
   const res = await fetch(`${API}/streams`);
+  const data = await res.json();
 
-  const text = await res.text();
-  console.log("STREAMS:", text); // 👈 смотри в консоль
-
-  try {
-    return JSON.parse(text);
-  } catch (e) {
-    console.error("JSON parse error");
+  if (!Array.isArray(data)) {
+    console.error("STREAMS ERROR:", data);
     return [];
   }
+
+  return data;
 };
