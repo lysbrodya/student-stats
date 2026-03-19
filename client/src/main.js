@@ -20,7 +20,7 @@ async function renderStreamsPage() {
 
   wrapper.innerHTML = `
       <div class="container streams-main-img">
-        <div> <img src="./../public/img/Frame 2087326902.png" alt=""> </div>
+        <div> <img src="/img/Frame 2087326902.png" alt=""> </div>
         <h1 class="streams-main-title">Система трекінгу навчального прогресу </br> для студентів Art Osvita</h1>
       </div>
     <div class="container">

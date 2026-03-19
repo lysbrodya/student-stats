@@ -875,7 +875,7 @@ td {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: linear-gradient(180deg, #003580 20%, rgba(0, 22, 54, 0) 59.99%), url(../../../public/bcg/main_bcg_1x.jpg);
+  background-image: linear-gradient(180deg, #003580 20%, rgba(0, 22, 54, 0) 59.99%), url("/bcg/main_bcg_1x.jpg");
   height: 100vh;
 }
 
