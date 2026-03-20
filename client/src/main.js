@@ -277,7 +277,7 @@ async function renderSprint(sprintName) {
     studentsMap[s.id] = s.name;
   });
 
-  const tasks = await getTasks();
+  const tasks = await getTasks(streamId);
 
   const sprintNum = (sprintName.match(/\d+/) || [""])[0];
 
