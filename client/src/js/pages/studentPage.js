@@ -9,7 +9,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream");
 
-  const tasksData = await getTasks(streamId || null);
+  const tasksData = await getTasks(streamId);
   console.log("student:", student);
 
   const tasks = Array.isArray(tasksData) ? tasksData : [];
