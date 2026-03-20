@@ -4,9 +4,12 @@ import { getTasks } from "../api/api.js";
 import { applyColors } from "../utils/applyColors.js";
 
 export async function renderStudentPage(studentsContainer, student, back) {
-  console.log(student);
+  // console.log(student);
 
-  const tasks = await getTasks();
+  const params = new URLSearchParams(window.location.search);
+  const streamId = params.get("stream");
+
+  const tasks = streamId ? await getTasks(streamId) : await getTasks("");
   const studentTasks = tasks.filter((t) => t.student === student.id);
   const sprintScores = {};
   const commentsData = [];
