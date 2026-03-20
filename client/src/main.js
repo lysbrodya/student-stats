@@ -110,6 +110,13 @@ async function router() {
 
   if (studentId) {
     const student = await getStudent(studentId);
+
+    if (!student || !student.id) {
+      console.error("STUDENT ERROR:", student);
+      studentsContainer.innerHTML = "<h2>Студента не найдено</h2>";
+      return;
+    }
+
     renderStudentPage(studentsContainer, student, back);
     return;
   }

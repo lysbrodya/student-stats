@@ -9,8 +9,12 @@ export async function renderStudentPage(studentsContainer, student, back) {
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream");
 
-  const tasks = streamId ? await getTasks(streamId) : await getTasks("");
-  const studentTasks = tasks.filter((t) => t.student === student.id);
+  // const tasks = streamId ? await getTasks(streamId) : await getTasks("");
+  const tasks = await getTasks(streamId);
+  // const studentTasks = tasks.filter((t) => t.student === student.id);
+  const studentTasks = tasks.filter(
+    (t) => String(t.student) === String(student.id),
+  );
   const sprintScores = {};
   const commentsData = [];
   const formatDate = (date) => {
@@ -233,7 +237,12 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
       const scores = Object.values(sprintScores[sprint]).filter(
         (s) => s !== undefined && s !== null,
       );
-      const avg = scores.reduce((sum, s) => sum + s, 0) / scores.length;
+      // const avg = scores.reduce((sum, s) => sum + s, 0) / scores.length;
+
+      const avg =
+        scores.length > 0
+          ? scores.reduce((sum, s) => sum + s, 0) / scores.length
+          : 0;
 
       row.innerHTML = `
   <td class="avg">${avg.toFixed(1)}</td>
@@ -270,4 +279,6 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
     drawLevelChart(student.level, student.time);
   });
   applyColors();
+  console.log("student:", student);
+  console.log("tasks:", tasks);
 }
