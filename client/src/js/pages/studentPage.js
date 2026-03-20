@@ -9,8 +9,13 @@ export async function renderStudentPage(studentsContainer, student, back) {
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream");
 
+  const tasksData = await getTasks(streamId || null);
+  console.log("student:", student);
+
+  const tasks = Array.isArray(tasksData) ? tasksData : [];
+  console.log("tasks:", tasks);
   // const tasks = streamId ? await getTasks(streamId) : await getTasks("");
-  const tasks = await getTasks(streamId);
+  // const tasks = await getTasks(streamId);
   // const studentTasks = tasks.filter((t) => t.student === student.id);
   const studentTasks = tasks.filter(
     (t) => String(t.student) === String(student.id),
@@ -279,6 +284,4 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
     drawLevelChart(student.level, student.time);
   });
   applyColors();
-  console.log("student:", student);
-  console.log("tasks:", tasks);
 }
