@@ -55,11 +55,19 @@ export async function getResults(streamId) {
     };
   });
 }
-export async function getSprintTasks() {
+export async function getSprintTasks(streamId) {
   const databaseId = process.env.NOTION_SPRINTS_TASCK_ID;
 
   const response = await notionClient.databases.query({
     database_id: databaseId,
+    filter: streamId
+      ? {
+          property: "ПОТОКИ КУРСІВ",
+          relation: {
+            contains: streamId,
+          },
+        }
+      : undefined,
   });
 
   return response.results.map((page) => {
