@@ -279,6 +279,10 @@ async function renderSprint(sprintName) {
 
   const tasks = await getTasks(streamId);
 
+  if (!Array.isArray(tasks)) {
+    console.error("TASKS ERROR:", tasks);
+    return;
+  }
   const sprintNum = (sprintName.match(/\d+/) || [""])[0];
 
   const sprintData = tasks.filter((t) => t.sprint === sprintNum);

@@ -9,8 +9,14 @@ export const getStudent = (id) =>
 
 export const getSprints = () => fetch(`${API}/sprints`).then((r) => r.json());
 
-export const getTasks = (streamId) =>
-  fetch(`${API}/tasks?streamId=${streamId}`).then((r) => r.json());
+// export const getTasks = (streamId) =>
+//   fetch(`${API}/tasks?streamId=${streamId}`).then((r) => r.json());
+
+export const getTasks = (streamId) => {
+  const url = streamId ? `${API}/tasks?streamId=${streamId}` : `${API}/tasks`;
+
+  return fetch(url).then((r) => r.json());
+};
 
 export const getStreams = async () => {
   const res = await fetch(`${API}/streams`);
