@@ -4,8 +4,6 @@ import { getTasks } from "../api/api.js";
 import { applyColors } from "../utils/applyColors.js";
 
 export async function renderStudentPage(studentsContainer, student, back) {
-  // console.log(student);
-
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream");
 
@@ -14,9 +12,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
 
   const tasks = Array.isArray(tasksData) ? tasksData : [];
   console.log("tasks:", tasks);
-  // const tasks = streamId ? await getTasks(streamId) : await getTasks("");
-  // const tasks = await getTasks(streamId);
-  // const studentTasks = tasks.filter((t) => t.student === student.id);
+
   const studentTasks = tasks.filter(
     (t) => String(t.student) === String(student.id),
   );
@@ -42,7 +38,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
     }
 
     sprintScores[sprint][task] = item.score;
-    // console.log(studentTasks.student.comment);
+    console.log(studentTasks.comment);
   });
 
   const comments = document.createElement("div");
@@ -132,6 +128,13 @@ export async function renderStudentPage(studentsContainer, student, back) {
   }
   const statsContainer = document.createElement("div");
 
+  const avg = (arr) => {
+    const valid = arr.filter((n) => typeof n === "number");
+    if (!valid.length) return 0;
+
+    return Math.round(valid.reduce((sum, n) => sum + n, 0) / valid.length);
+  };
+
   statsContainer.innerHTML = `
 <section class="container stroke-section">
   <div>  
@@ -172,32 +175,34 @@ export async function renderStudentPage(studentsContainer, student, back) {
 ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Композиція</p><span class="line-leter"></span> <span class="leter-persent">${student.F}</span></li>` : ``}
 </ul>
 </div>
-      <div class="midle-scors">
-     <div>
-    <p class="midle-scors_top">ADE</p>
-    <p class="midle-scors_midle">${parseInt((student.A + student.D + student.E) / 3)}</p>
-    <span class=""></span>
-    <p>Ахроматика та літера</p>
+  <div class="midle-scors">
+  ${
+    student.course === "Композиція ЛНАМ"
+      ? `<div>
+      <p class="midle-scors_top">ADE</p>
+      <p class="midle-scors_midle">${avg([student.A, student.D, student.E])}</p>
+      <span class=""></span>
+      <p>Ахроматика та літера</p>
+    </div>
+    <div>
+      <p class="midle-scors_top">ABDE</p>
+      <p class="midle-scors_midle">${avg([student.A + student.B + student.D + student.E])}</p>
+      <span class=""></span>
+      <p>Хроматика та літера</p>
+    </div>
+    <div>
+      <p class="midle-scors_top">ABCE</p>
+      <p class="midle-scors_midle">${avg([student.A + student.B + student.C + student.E])}</p>
+      <span class=""></span>
+      <p>Хроматика та природний мотив</p>
+    </div>`
+      : `<p class="midle-scors-general">середній бал <span class="midle-scors_num">${avg([student.A + student.B + student.C + student.D + student.E + student.F])}</span></p>
+ `
+  }
   </div>
-  <div>
-    <p class="midle-scors_top">ABDE</p>
-    <p class="midle-scors_midle">${parseInt((student.A + student.B + student.D + student.E) / 4)}</p>
-    <span class=""></span>
-    <p>Хроматика та літера</p>
-  </div>
-  <div>
-    <p class="midle-scors_top">ABCE</p>
-    <p class="midle-scors_midle">${parseInt((student.A + student.B + student.C + student.E) / 4)}</p>
-    <span class=""></span>
-    <p>Хроматика та природний мотив</p>
-  </div>
-      </div>
 </section>
 `;
 
-  {
-    /* <p class="midle-scors-general">середній бал <span class="midle-scors_num">${parseInt((student.A + student.B + student.C + student.D + student.E) / 5)}</span></p> */
-  }
   const sectionTable = document.createElement("section");
   sectionTable.classList.add("section-table", "container");
   sectionTable.innerHTML = `<h2 class="section-table-title">Результати по спринтах</h2>`;
@@ -242,7 +247,6 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
       const scores = Object.values(sprintScores[sprint]).filter(
         (s) => s !== undefined && s !== null,
       );
-      // const avg = scores.reduce((sum, s) => sum + s, 0) / scores.length;
 
       const avg =
         scores.length > 0

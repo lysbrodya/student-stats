@@ -23,10 +23,12 @@ body {
   margin-bottom: auto;
   height: 100vh;
   margin: 0;
+  padding-bottom: 40px;
 }
 
 main {
   background-color: $background-color-main;
+  // padding-bottom: 40px;
 }
 .btn-back {
   display: flex;

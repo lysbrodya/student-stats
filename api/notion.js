@@ -133,8 +133,19 @@ export async function getCourseStreams() {
     return {
       id: page.id,
       name: p["Name"]?.title?.[0]?.plain_text || "",
-      course: p["Курс"]?.select?.name || "",
-      stream: p["Потік"]?.select?.name || "",
+      course: p["КУРС"]?.select?.name || "",
+      done: p["ЗАВЕРШЕНО"]?.checkbox || false,
+      number: p["ПОТІК"]?.number || 0,
     };
   });
+}
+
+export async function testDatabase() {
+  const databaseId = process.env.NOTION_COURSES_STREAMS_ID;
+
+  const response = await notionClient.databases.query({
+    database_id: databaseId,
+  });
+
+  return response;
 }

@@ -27,10 +27,23 @@ export const getSprints = () => fetch(`${API}/sprints`).then((r) => r.json());
 
 //   return fetch(url).then((r) => r.json());
 // };
+
+// export const getTasks = async (streamId) => {
+//   const url = streamId ? `${API}/tasks?streamId=${streamId}` : `${API}/tasks`;
+
+//   const r = await fetch(url);
+//   return await r.json();
+// };
 export const getTasks = async (streamId) => {
   const url = streamId ? `${API}/tasks?streamId=${streamId}` : `${API}/tasks`;
 
   const r = await fetch(url);
+
+  if (!r.ok) {
+    console.error("TASKS FETCH ERROR:", r.status);
+    return [];
+  }
+
   return await r.json();
 };
 export const getStreams = async () => {

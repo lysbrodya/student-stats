@@ -43,11 +43,13 @@ async function renderStreamsPage() {
   const title = select.querySelector(".select-title");
 
   const streams = await getStreams();
-
+  streams.sort((a, b) => a.number - b.number);
   streams.forEach((stream) => {
     const option = document.createElement("div");
     option.classList.add("select-option");
     option.textContent = stream.name;
+    console.log(stream);
+    console.log(stream.name);
 
     option.addEventListener("click", () => {
       title.textContent = stream.name;
@@ -166,18 +168,14 @@ function goHome() {
 async function renderHome() {
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream"); // ✅ СНАЧАЛА
-
+  console.log("streamId", streamId);
   const streams = await getStreams();
   const currentStream = streams.find((s) => s.id === streamId);
+  console.log("streams", streams);
+  console.log("currentStream", currentStream);
 
-  let courseName = "";
-  let streamName = "";
-
-  if (currentStream) {
-    const parts = currentStream.name.split(" - ");
-    streamName = parts[0];
-    courseName = parts[1] || "";
-  }
+  let streamName = currentStream.number ? `${currentStream.number} потік` : "";
+  let courseName = currentStream.course || "";
 
   const thead = document.createElement("div");
 
