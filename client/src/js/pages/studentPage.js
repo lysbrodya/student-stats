@@ -6,7 +6,7 @@ import { applyColors } from "../utils/applyColors.js";
 export async function renderStudentPage(studentsContainer, student, back) {
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream");
-
+  document.body.classList.remove("streams");
   const tasksData = await getTasks(streamId);
   console.log("student:", student);
 

@@ -61,6 +61,13 @@ img {
   margin-bottom: 20px;
 }
 
+body.streams {
+  background-image: linear-gradient(180deg, #003580 20%, rgba(0, 22, 54, 0) 60%), url("/bcg/main_bcg_1x.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 body {
   width: 100%;
   font-family: "Geologica", "Arial", sans-serif;
@@ -70,11 +77,10 @@ body {
   margin-bottom: auto;
   min-height: 100vh;
   margin: 0;
-  padding-bottom: 40px;
 }
 
 main {
-  background-color: #2a2f36;
+  padding-bottom: 60px;
 }
 
 .btn-back {
@@ -870,14 +876,6 @@ td {
   width: 100%;
   aspect-ratio: 1/1;
   display: block;
-}
-
-.streams-page {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(180deg, #003580 20%, rgba(0, 22, 54, 0) 59.99%), url("/bcg/main_bcg_1x.jpg");
-  min-height: 100vh;
 }
 
 .streams-main-img {

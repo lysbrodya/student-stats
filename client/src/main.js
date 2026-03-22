@@ -12,6 +12,7 @@ import { renderSprintPage } from "./js/pages/sprintPage.js";
 import { createStudentRow } from "./js/components/studentRow.js";
 
 async function renderStreamsPage() {
+  document.body.classList.add("streams");
   studentsContainer.innerHTML = "";
   sprintsContainer.innerHTML = "";
 
@@ -166,6 +167,7 @@ function goHome() {
 }
 // 5️⃣ Главная страница
 async function renderHome() {
+  document.body.classList.remove("streams");
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream"); // ✅ СНАЧАЛА
   console.log("streamId", streamId);
@@ -229,6 +231,7 @@ async function renderHome() {
 }
 // 6️⃣ Спринты
 async function renderSprints() {
+  document.body.classList.remove("streams");
   const sprints = await getSprints();
 
   const tableSpr = document.createElement("div");
@@ -272,6 +275,7 @@ async function renderSprints() {
 }
 // 7️⃣ Рендер страницы спринта
 async function renderSprint(sprintName) {
+  document.body.classList.remove("streams");
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream");
 
