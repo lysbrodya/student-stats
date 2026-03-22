@@ -127,17 +127,19 @@ export async function getCourseStreams() {
     database_id: databaseId,
   });
 
-  return response.results.map((page) => {
-    const p = page.properties;
+  return response.results
+    .map((page) => {
+      const p = page.properties;
 
-    return {
-      id: page.id,
-      name: p["Name"]?.title?.[0]?.plain_text || "",
-      course: p["КУРС"]?.select?.name || "",
-      done: p["ЗАВЕРШЕНО"]?.checkbox || false,
-      number: p["ПОТІК"]?.number || 0,
-    };
-  });
+      return {
+        id: page.id,
+        name: p["Name"]?.title?.[0]?.plain_text || "",
+        course: p["КУРС"]?.select?.name || "",
+        done: p["ЗАВЕРШЕНО"]?.checkbox || false,
+        number: p["ПОТІК"]?.number || 0,
+      };
+    })
+    .filter((stream) => !stream.done);
 }
 
 export async function testDatabase() {
