@@ -49,9 +49,11 @@ export async function getResults(streamId) {
 
       E: p["E"]?.rollup?.array?.[0]?.number ?? 0,
 
+      F: p["F"]?.rollup?.array?.[0]?.number ?? 0,
+
       time: p["time"]?.number ?? 0,
-      course: p["Курс"]?.rollup?.array?.[0]?.plain_text || "",
-      stream: p["ПОТОКИ КУРСІВ"]?.relation?.array?.[0]?.plain_text || "",
+      course: p["Курс"].rollup.array[0].select.name || "",
+      stream: p["ПОТОКИ КУРСІВ"]?.relation?.[0]?.id || "",
     };
   });
 }
