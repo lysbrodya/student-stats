@@ -1,10 +1,6 @@
 const API =
   window.location.hostname === "localhost" ? "http://localhost:3000" : "/api";
 
-// export const getStudents = () => fetch(`${API}/results`).then((r) => r.json());
-// export const getStudents = (streamId) =>
-//   fetch(`${API}/results?streamId=${streamId}`).then((r) => r.json());
-
 export const getStudents = async (streamId) => {
   const url = streamId
     ? `${API}/results?streamId=${streamId}`
@@ -19,21 +15,6 @@ export const getStudent = (id) =>
 
 export const getSprints = () => fetch(`${API}/sprints`).then((r) => r.json());
 
-// export const getTasks = (streamId) =>
-//   fetch(`${API}/tasks?streamId=${streamId}`).then((r) => r.json());
-
-// export const getTasks = (streamId) => {
-//   const url = streamId ? `${API}/tasks?streamId=${streamId}` : `${API}/tasks`;
-
-//   return fetch(url).then((r) => r.json());
-// };
-
-// export const getTasks = async (streamId) => {
-//   const url = streamId ? `${API}/tasks?streamId=${streamId}` : `${API}/tasks`;
-
-//   const r = await fetch(url);
-//   return await r.json();
-// };
 export const getTasks = async (streamId) => {
   const url = streamId ? `${API}/tasks?streamId=${streamId}` : `${API}/tasks`;
 
