@@ -186,17 +186,17 @@ ${student.F ? `<li><p class="letter">F</p><p class="letter-title">Компози
     </div>
     <div>
       <p class="midle-scors_top">ABDE</p>
-      <p class="midle-scors_midle">${avg([student.A + student.B + student.D + student.E])}</p>
+      <p class="midle-scors_midle">${avg([student.A, student.B, student.D, student.E])}</p>
       <span class=""></span>
       <p>Хроматика та літера</p>
     </div>
     <div>
       <p class="midle-scors_top">ABCE</p>
-      <p class="midle-scors_midle">${avg([student.A + student.B + student.C + student.E])}</p>
+      <p class="midle-scors_midle">${avg([student.A, student.B, student.C, student.E])}</p>
       <span class=""></span>
       <p>Хроматика та природний мотив</p>
     </div>`
-      : `<p class="midle-scors-general">середній бал <span class="midle-scors_num">${avg([student.A + student.B + student.C + student.D + student.E + student.F])}</span></p>
+      : `<p class="midle-scors-general">середній бал <span class="midle-scors_num">${avg([student.A, student.B, student.C, student.D, student.E, student.F])}</span></p>
  `
   }
   </div>

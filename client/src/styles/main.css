@@ -68,7 +68,7 @@ body {
   font-size: 12px;
   background-color: #2a2f36;
   margin-bottom: auto;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding-bottom: 40px;
 }
@@ -866,8 +866,8 @@ td {
 }
 
 .stroke-section canvas {
+  aspect-ratio: 1/1;
   width: 100%;
-  height: width;
   aspect-ratio: 1/1;
   display: block;
 }
