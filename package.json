@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
-    "@notionhq/client": "^2.2.5"
+    "@notionhq/client": "^2.2.5",
+    "@supabase/supabase-js": "^2.99.3"
   },
   "name": "student-stats",
   "description": "",
