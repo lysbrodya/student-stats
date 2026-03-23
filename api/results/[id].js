@@ -12,7 +12,18 @@ export default async function handler(req, res) {
 
     if (error) throw error;
 
-    res.status(200).json(data);
+    // Преобразуем маленькие буквы в заглавные для совместимости с фронтом
+    const formatted = {
+      ...data,
+      A: data.a,
+      B: data.b,
+      C: data.c,
+      D: data.d,
+      E: data.e,
+      F: data.f,
+    };
+
+    res.status(200).json(formatted);
   } catch (e) {
     console.error("RESULT BY ID ERROR:", e);
     res.status(500).json({ error: "DB error" });

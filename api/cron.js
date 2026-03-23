@@ -16,12 +16,12 @@ export default async function handler(req, res) {
       time: r.time,
       course: r.course,
       stream_id: r.stream,
-      A: r.A,
-      B: r.B,
-      C: r.C,
-      D: r.D,
-      E: r.E,
-      F: r.F,
+      a: r.A,
+      b: r.B,
+      c: r.C,
+      d: r.D,
+      e: r.E,
+      f: r.F,
     }));
 
     // 3. чистим таблицу (упростим пока)
