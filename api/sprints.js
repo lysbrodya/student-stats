@@ -1,4 +1,4 @@
-import { getSprints } from "./lib/notion.js";
+import { getSprints } from "../lib/notion.js";
 
 export default async function handler(req, res) {
   try {
