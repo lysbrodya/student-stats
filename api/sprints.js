@@ -13,7 +13,6 @@ export default async function handler(req, res) {
     const formatted = data.map((s) => ({
       id: s.id,
       sprint: s.sprint,
-      student: s.student,
     }));
 
     res.status(200).json(formatted);
