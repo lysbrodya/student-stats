@@ -1,4 +1,4 @@
-import { supabase } from "./db.js";
+import { supabase } from "./lib/db.js";
 export default async function handler(req, res) {
   try {
     const { streamId } = req.query;

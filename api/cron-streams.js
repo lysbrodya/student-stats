@@ -1,5 +1,5 @@
-import { supabase } from "./db.js";
-import { getCourseStreams } from "./notion.js";
+import { supabase } from "./lib/db.js";
+import { getCourseStreams } from "./lib/notion.js";
 
 export default async function handler(req, res) {
   try {

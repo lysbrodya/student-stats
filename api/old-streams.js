@@ -1,4 +1,4 @@
-import { getCourseStreams } from "./notion.js";
+import { getCourseStreams } from "./lib/notion.js";
 
 export default async function handler(req, res) {
   try {
