@@ -5,15 +5,15 @@ export default async function handler(req, res) {
     const { data, error } = await supabase
       .from("sprints")
       .select("*")
-      .order("name", { ascending: true });
+      .order("sprint", { ascending: true });
 
     if (error) throw error;
 
     // Преобразуем обратно в формат, ожидаемый клиентом
     const formatted = data.map((s) => ({
       id: s.id,
-      sprint: s.name,
-      student: s.student_name,
+      sprint: s.sprint,
+      student: s.student,
       score: s.score,
       done: s.done,
     }));

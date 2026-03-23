@@ -7,10 +7,10 @@ export default async function handler(req, res) {
 
     const formatted = sprints.map((s) => ({
       id: s.id,
-      name: s.sprint,
-      student_name: s.student,
+      sprint: s.sprint,
+      student: s.student,
       score: s.score,
-      number: 0, // на случай, если поле ещё нет, чтобы не было NULL (опционально)
+      done: s.done || false,
     }));
 
     // чистим таблицу
