@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   try {
     // 1. берём данные из Notion
     const results = await getResults();
-
+    console.log(results[0]);
     // 2. преобразуем (если нужно)
     const students = results.map((r) => ({
       id: r.id,
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       level: r.level,
       time: r.time,
       course: r.course,
-      stream_id: r.streamId,
+      stream_id: r.stream,
     }));
 
     // 3. чистим таблицу (упростим пока)
