@@ -15,6 +15,7 @@ export default async function handler(req, res) {
       score: t.score,
       done: t.done,
     }));
+    console.log(formatted[0]);
     // чистим таблицу
     await supabase.from("tasks").delete().neq("id", "");
 
