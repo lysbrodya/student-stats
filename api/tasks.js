@@ -22,7 +22,15 @@ export default async function handler(req, res) {
 
     if (error) throw error;
 
-    res.status(200).json(data);
+    // compatibility: frontend was using `student` field in old Notion API shape
+    const formatted = data.map((t) => ({
+      ...t,
+      student: t.student_id,
+      comment: t.comment ?? "",
+      date: t.date ?? "",
+    }));
+
+    res.status(200).json(formatted);
   } catch (e) {
     console.error("TASKS ERROR:", e);
     res.status(500).json({ error: "DB error" });

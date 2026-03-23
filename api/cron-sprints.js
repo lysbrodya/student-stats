@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       name: s.sprint,
       student_name: s.student,
       score: s.score,
-      done: s.done,
+      number: 0, // на случай, если поле ещё нет, чтобы не было NULL (опционально)
     }));
 
     // чистим таблицу

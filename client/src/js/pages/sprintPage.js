@@ -39,7 +39,7 @@ export function renderSprintPage(
   // Группируем данные по студентам
   const studentScores = {};
   data.forEach((row) => {
-    const studentId = row.student;
+    const studentId = row.student ?? row.student_id;
     const task = row.task;
     const score = row.score;
     if (!studentScores[studentId]) {

@@ -17,6 +17,8 @@ export default async function handler(req, res) {
       task: t.task,
       score: t.score,
       done: t.done,
+      comment: t.comment || null,
+      date: t.date || null,
     }));
 
     await supabase.from("tasks").delete().neq("id", "");

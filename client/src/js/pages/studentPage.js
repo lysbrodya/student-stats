@@ -14,7 +14,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
   console.log("tasks:", tasks);
 
   const studentTasks = tasks.filter(
-    (t) => String(t.student) === String(student.id),
+    (t) => String(t.student ?? t.student_id) === String(student.id),
   );
   const sprintScores = {};
   const commentsData = [];
