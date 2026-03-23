@@ -292,7 +292,7 @@ async function renderSprint(sprintName) {
     console.error("TASKS ERROR:", tasks);
     return;
   }
-  const sprintNum = (sprintName.match(/\d+/) || [""])[0];
+  const sprintNum = Number((sprintName.match(/\d+/) || [""])[0]);
 
   const sprintData = tasks.filter((t) => t.sprint === sprintNum);
 
