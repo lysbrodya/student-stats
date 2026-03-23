@@ -1,4 +1,4 @@
-import { getResults } from "./lib/notion.js";
+import { getResults } from "./notion.js";
 
 export default async function handler(req, res) {
   try {
