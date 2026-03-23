@@ -1,18 +1,18 @@
-import { getCourseStreams } from "./notion.js";
+import { supabase } from "./db.js";
 
 export default async function handler(req, res) {
   try {
-    const streams = await getCourseStreams();
+    const { data, error } = await supabase
+      .from("streams")
+      .select("*")
+      .eq("done", false)
+      .order("number", { ascending: true });
 
-    console.log("STREAMS DATA:", streams); // 👈 ЛОГ
+    if (error) throw error;
 
-    res.status(200).json(streams);
+    res.status(200).json(data);
   } catch (e) {
-    console.error("STREAMS ERROR:", e); // 👈 ВАЖНО
-
-    res.status(500).json({
-      error: e.message,
-      details: e.body || null,
-    });
+    console.error("STREAMS ERROR:", e);
+    res.status(500).json({ error: "DB error" });
   }
 }
