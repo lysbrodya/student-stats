@@ -1,25 +1,21 @@
-import { getSprintTasks, getResults } from "./notion.js";
-
+import { supabase } from "./db.js";
 export default async function handler(req, res) {
   try {
     const { streamId } = req.query;
+    let query = supabase.from("tasks").select("*");
 
-    const tasks = await getSprintTasks();
-
-    if (!streamId) {
-      return res.status(200).json(tasks);
+    // фильтр по stream
+    if (streamId) {
+      query = query.eq("stream_id", streamId);
     }
 
-    // 👇 получаем студентов текущего потока
-    const students = await getResults(streamId);
-    const studentIds = students.map((s) => s.id);
+    const { data, error } = await query;
 
-    // 👇 фильтруем задачи по студентам
-    const filtered = tasks.filter((t) => studentIds.includes(t.student));
+    if (error) throw error;
 
-    res.status(200).json(filtered);
+    res.status(200).json(data);
   } catch (e) {
-    console.error("TASKS ERROR:", e);
-    res.status(500).json({ error: "Notion error" });
+    console.error("RESULTS ERROR:", e);
+    res.status(500).json({ error: "DB error" });
   }
 }

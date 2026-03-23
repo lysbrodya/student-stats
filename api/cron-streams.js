@@ -9,6 +9,7 @@ export default async function handler(req, res) {
       id: s.id,
       name: s.name,
       course: s.course,
+
       number: s.number,
       done: s.done,
     }));

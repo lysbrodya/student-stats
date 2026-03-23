@@ -74,6 +74,7 @@ export async function getSprintTasks(streamId) {
 
   return response.results.map((page) => {
     const p = page.properties;
+    console.log("ALL PROPERTIES:", Object.keys(p));
     const name = p["Name"]?.title?.[0]?.plain_text || "";
     // Ожидаем формат "1-1", "1-2" и т.д.
     let sprint = "",
@@ -87,6 +88,7 @@ export async function getSprintTasks(streamId) {
       task: task.trim(),
       student:
         p["Студенти"]?.relation?.[0]?.id || p["Студенти"]?.select?.id || "",
+      stream: p["ПОТОКИ КУРСІВ"]?.relation?.[0]?.id || "",
       score: p["Оцінка"]?.number ?? 0,
       done: p["Виконано"]?.checkbox ?? false,
       comment:
