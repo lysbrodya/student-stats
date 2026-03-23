@@ -1,5 +1,5 @@
-import { supabase } from "./db.js";
-import { getResults } from "./notion.js"; // твоя функция из Notion
+import { supabase } from "../lib/db.js";
+import { getResults } from "../lib/notion.js"; // твоя функция из Notion
 
 export default async function handler(req, res) {
   try {

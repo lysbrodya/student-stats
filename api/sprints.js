@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       sprint: s.sprint,
       student: s.student,
       score: s.score,
-      done: s.done,
+      // done: s.done,
     }));
 
     res.status(200).json(formatted);

@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       sprint: s.sprint,
       student: s.student,
       score: s.score,
-      done: s.done || false,
+      //   done: s.done || false,
     }));
 
     // чистим таблицу

@@ -1,5 +1,5 @@
 import { supabase } from "../lib/db.js";
-import { getSprintTasks, getResults } from "./notion.js";
+import { getSprintTasks, getResults } from "../lib/notion.js";
 
 export default async function handler(req, res) {
   try {
