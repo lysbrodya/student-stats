@@ -9,7 +9,6 @@ export default async function handler(req, res) {
     const formatted = tasks.map((t) => ({
       id: t.id,
       student_id: t.student,
-      stream_id: t.stream,
       sprint: t.sprint,
       task: t.task,
       score: t.score,
