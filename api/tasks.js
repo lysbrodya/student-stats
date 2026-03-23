@@ -1,6 +1,8 @@
+import { supabase } from "../lib/db.js";
+
 export default async function handler(req, res) {
   try {
-    const { sprint, studentId } = req.query;
+    const { sprint, studentId, streamId } = req.query;
 
     let query = supabase.from("tasks").select("*");
 
@@ -10,6 +12,10 @@ export default async function handler(req, res) {
 
     if (studentId) {
       query = query.eq("student_id", studentId);
+    }
+
+    if (streamId) {
+      query = query.eq("stream_id", streamId);
     }
 
     const { data, error } = await query;
