@@ -1,18 +1,20 @@
-import { getResults } from "../notion.js";
+import { supabase } from "../../lib/db.js";
 
 export default async function handler(req, res) {
-  const { id } = req.query; // Vercel передаёт параметр как query
-
   try {
-    const results = await getResults();
-    const student = results.find((s) => s.id === id);
+    const { id } = req.query;
 
-    if (!student) {
-      return res.status(404).json({ error: "Student not found" });
-    }
+    const { data, error } = await supabase
+      .from("students")
+      .select("*")
+      .eq("id", id)
+      .single();
 
-    res.status(200).json(student);
+    if (error) throw error;
+
+    res.status(200).json(data);
   } catch (e) {
-    res.status(500).json({ error: "Notion error" });
+    console.error("RESULT BY ID ERROR:", e);
+    res.status(500).json({ error: "DB error" });
   }
 }

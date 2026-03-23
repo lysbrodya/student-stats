@@ -1,12 +1,15 @@
-import { supabase } from "../lib/db.js";
 export default async function handler(req, res) {
   try {
-    const { streamId } = req.query;
+    const { sprint, studentId } = req.query;
+
     let query = supabase.from("tasks").select("*");
 
-    // фильтр по stream
-    if (streamId) {
-      query = query.eq("stream_id", streamId);
+    if (sprint) {
+      query = query.eq("sprint", sprint);
+    }
+
+    if (studentId) {
+      query = query.eq("student_id", studentId);
     }
 
     const { data, error } = await query;
@@ -15,7 +18,7 @@ export default async function handler(req, res) {
 
     res.status(200).json(data);
   } catch (e) {
-    console.error("RESULTS ERROR:", e);
+    console.error("TASKS ERROR:", e);
     res.status(500).json({ error: "DB error" });
   }
 }
