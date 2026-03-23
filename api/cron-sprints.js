@@ -10,8 +10,6 @@ export default async function handler(req, res) {
       id: s.id,
       sprint: s.sprint,
       student: s.student,
-      score: s.score,
-      done: s.done || false,
     }));
 
     console.log(
