@@ -95,7 +95,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
 
 <ul class="cats">
   <li>
-    <svg width="34" height="34" class="icon-cat cat-productivity">
+    <svg width="34" height="34" class="icon-cat cat-level ">
       <use href="/sprite.svg#icon-gray-cat"></use>
     </svg>
   </li>
@@ -105,7 +105,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
     </svg>
   </li>
   <li>
-    <svg width="34" height="34" class="icon-cat cat-level">
+    <svg width="34" height="34" class="icon-cat cat-productivity">
       <use href="/sprite.svg#icon-gray-cat"></use>
     </svg>
   </li>
