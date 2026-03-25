@@ -726,12 +726,14 @@ td {
 }
 .stroke-section .persents-blue {
   color: #579dff;
+  margin-bottom: 4px;
 }
 .stroke-section .persents-yellow {
   color: #d9b54a;
 }
 .stroke-section .persents-red {
   color: #c98585;
+  margin-bottom: 4px;
 }
 .stroke-section .persents-green {
   color: #5bc9c0;
