@@ -725,6 +725,7 @@ td {
   padding-right: 6px;
 }
 .stroke-section .persents-blue {
+  display: inline-block;
   color: #579dff;
   margin-bottom: 4px;
 }
@@ -732,6 +733,7 @@ td {
   color: #d9b54a;
 }
 .stroke-section .persents-red {
+  display: inline-block;
   color: #c98585;
   margin-bottom: 4px;
 }
