@@ -10,6 +10,7 @@ import { applyColors } from "./js/utils/applyColors.js";
 import { renderStudentPage } from "./js/pages/studentPage.js";
 import { renderSprintPage } from "./js/pages/sprintPage.js";
 import { createStudentRow } from "./js/components/studentRow.js";
+import { runCronIfNeeded } from "./js/utils/cron.js";
 
 async function renderStreamsPage() {
   runCronIfNeeded();
