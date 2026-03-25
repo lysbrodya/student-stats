@@ -312,21 +312,4 @@ async function renderSprint(sprintName) {
 window.addEventListener("popstate", router);
 // 9️⃣ Запуск приложения
 router();
-/*
-We want to be able to call 'toJadenCase()' directly on a string like so:
-'most trees are blue'.toJadenCase(); // returns 'Most Trees Are Blue'
-For that, we need to add a method to the String prototype:
-*/
-
-Object.defineProperty(String.prototype, "toJadenCase", {
-  value: function toJadenCase() {
-    console.log(this.split(" "));
-    let arr = this.split(" ").map((w) => w[0].toUpperCase() + w.slice(1));
-    return arr.join(" ");
-  },
-});
-// function toJadenCase() {
-//   console.log(this);
-//   return this;
-// }
-"abc def".toJadenCase();
+console.log("CRON RUN:", new Date().toISOString());
