@@ -12,6 +12,7 @@ import { renderSprintPage } from "./js/pages/sprintPage.js";
 import { createStudentRow } from "./js/components/studentRow.js";
 
 async function renderStreamsPage() {
+  runCronIfNeeded();
   document.body.classList.add("streams");
   studentsContainer.innerHTML = "";
   sprintsContainer.innerHTML = "";
