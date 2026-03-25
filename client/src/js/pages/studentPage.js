@@ -161,19 +161,75 @@ export async function renderStudentPage(studentsContainer, student, back) {
 </div>
 <div class="costs">
 <p class="top-canvas-title">Оцінки за модулі:</p>
-<ul>
+${
+  student.course === "Композиція ЛНАМ"
+    ? `<ul>
 <li>
   <p class="letter">A</p>
   <p class="letter-title">Лінійно-конструктивна,
     <br/> побудова</p><span class="line-leter">
   </span> <span class="leter-persent">${student.A}</span></li>
-<li><p class="letter">B</p><p class="letter-title">Повітряна перспектива</p><span class="line-leter"></span> <span class="leter-persent"> ${student.B}</span></li>
-<li><p class="letter">C</p><p class="letter-title">Світло-тіньова побудова</p><span class="line-leter"></span> <span class="leter-persent">${student.C}</span></li>
-<li><p class="letter">D</p><p class="letter-title">Штрих та технічне виконання</p><span class="line-leter"></span> <span class="leter-persent">${student.D}</span></li>
-<li><p class="letter">E</p><p class="letter-title">Пропорції</p><span class="line-leter"></span> <span class="leter-persent">${student.E}</span></li>
-
-${student.F ? `<li><p class="letter">F</p><p class="letter-title">Композиція</p><span class="line-leter"></span> <span class="leter-persent">${student.F}</span></li>` : ``}
-</ul>
+<li>
+  <p class="letter">B</p>
+  <p class="letter-title">Повітряна перспектива</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.B}</span>
+</li>
+<li>
+  <p class="letter">C</p>
+  <p class="letter-title">Світло-тіньова побудова</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.C}</span></li>
+<li>
+  <p class="letter">D</p>
+  <p class="letter-title">Штрих та технічне виконання</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.D}</span>
+</li>
+<li>
+  <p class="letter">E</p>
+  <p class="letter-title">Пропорції</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.E}</span>
+</li>
+<li>
+  <p class="letter">F</p>
+  <p class="letter-title">Композиція</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.F}</span>
+</li>
+</ul>`
+    : `<ul>
+<li>
+  <p class="letter">A</p>
+  <p class="letter-title">Фігуративна композиція, 
+    <br/> тональна мапа</p><span class="line-leter">
+  </span> <span class="leter-persent">${student.A}</span></li>
+<li>
+  <p class="letter">B</p>
+  <p class="letter-title">Колористика</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.B}</span>
+</li>
+<li>
+  <p class="letter">C</p>
+  <p class="letter-title">Природний мотив</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.C}</span></li>
+<li>
+  <p class="letter">D</p>
+  <p class="letter-title">Типографічний елемент</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.D}</span>
+</li>
+<li>
+  <p class="letter">E</p>
+  <p class="letter-title">Практичне виконання </p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.E}</span>
+</li>
+</ul>`
+}
 </div>
   <div class="midle-scors">
   ${
