@@ -162,7 +162,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
 <div class="costs">
 <p class="top-canvas-title">Оцінки за модулі:</p>
 ${
-  student.course === "Композиція ЛНАМ"
+  student.course !== "Композиція ЛНАМ"
     ? `<ul>
 <li>
   <p class="letter">A</p>
@@ -192,7 +192,12 @@ ${
   <span class="line-leter"></span> 
   <span class="leter-persent">${student.E}</span>
 </li>
-
+<li>
+  <p class="letter">F</p>
+  <p class="letter-title">Композиція</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.F}</span>
+</li>
 </ul>`
     : `<ul>
 <li>
@@ -223,12 +228,7 @@ ${
   <span class="line-leter"></span> 
   <span class="leter-persent">${student.E}</span>
 </li>
-<li>
-  <p class="letter">F</p>
-  <p class="letter-title">Композиція</p>
-  <span class="line-leter"></span> 
-  <span class="leter-persent">${student.F}</span>
-</li>
+
 </ul>`
 }
 </div>
