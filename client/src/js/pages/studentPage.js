@@ -192,12 +192,7 @@ ${
   <span class="line-leter"></span> 
   <span class="leter-persent">${student.E}</span>
 </li>
-<li>
-  <p class="letter">F</p>
-  <p class="letter-title">Композиція</p>
-  <span class="line-leter"></span> 
-  <span class="leter-persent">${student.F}</span>
-</li>
+
 </ul>`
     : `<ul>
 <li>
@@ -227,6 +222,12 @@ ${
   <p class="letter-title">Практичне виконання </p>
   <span class="line-leter"></span> 
   <span class="leter-persent">${student.E}</span>
+</li>
+<li>
+  <p class="letter">F</p>
+  <p class="letter-title">Композиція</p>
+  <span class="line-leter"></span> 
+  <span class="leter-persent">${student.F}</span>
 </li>
 </ul>`
 }
