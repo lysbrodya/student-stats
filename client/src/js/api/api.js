@@ -1,5 +1,7 @@
 const API =
-  window.location.hostname === "localhost" ? "http://localhost:3000" : "/api";
+  window.location.hostname === "localhost"
+    ? "https://student-stats.vercel.app/api"
+    : "/api";
 
 export const getStudents = async (streamId) => {
   const url = streamId

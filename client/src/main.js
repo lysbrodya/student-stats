@@ -315,3 +315,16 @@ window.addEventListener("popstate", router);
 // 9️⃣ Запуск приложения
 router();
 console.log("CRON RUN:", new Date().toISOString());
+
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+function alphabetPosition(text) {
+  return text
+    .split("")
+    .map((word) => alphabet.indexOf(word.toUpperCase()) + 1)
+    .filter((e) => e !== 0)
+    .join(" ");
+}
+
+alphabetPosition("The sunset sets at twelve o' clock.");
+console.log(alphabetPosition("The sunset sets at twelve o' clock."));
