@@ -4,7 +4,7 @@ export function renderRegisterPage(container, router, back) {
   container.innerHTML = `
       <div class="container register-container">
         <div class="register-top">
-          <img src="./public/img/avatar.jpg" alt="avatar" class="avatar" />
+          <img src="/public/img/avatar.jpg" alt="avatar" class="avatar" />
           <div>
             <h2>Реєстрація</h2>
             <p>Запаліть іскру творчості!</p>
