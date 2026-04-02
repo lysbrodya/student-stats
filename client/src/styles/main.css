@@ -61,7 +61,7 @@ img {
   margin-bottom: 20px;
 }
 
-body.streams {
+body.landing {
   background-image: linear-gradient(180deg, #003580 20%, rgba(0, 22, 54, 0) 60%), url("/bcg/main_bcg_1x.jpg");
   background-size: cover;
   background-position: center;
@@ -479,12 +479,6 @@ main {
   z-index: 1;
 }
 
-.select-arrow {
-  width: 24px;
-  transition: transform 0.3s;
-  z-index: 1;
-}
-
 /* 🔥 поворот стрелки */
 .custom-select.open .select-arrow {
   transform: rotate(90deg);
@@ -515,10 +509,6 @@ main {
 
 .select-option:hover {
   background: rgba(255, 255, 255, 0.1);
-}
-
-.select-arrow {
-  transform: rotate(0deg);
 }
 
 .table {
@@ -882,11 +872,11 @@ td {
   display: block;
 }
 
-.streams-main-img {
+.landing-main-img {
   padding-top: 96px;
 }
 
-.streams-main-title {
+.landing-main-title {
   font-weight: 300;
   font-style: Light;
   font-size: 20px;
@@ -897,4 +887,270 @@ td {
   color: #dcdfe3;
   margin-top: 16px;
   margin-bottom: 16px;
+}
+
+.goRegister {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* текст по центру */
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: rgb(1, 52, 128);
+  border-radius: 40px;
+  padding: 22px 20px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 0.9;
+  letter-spacing: -2%;
+  vertical-align: bottom;
+}
+
+.arrow-circle {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  bottom: 8px;
+  aspect-ratio: 1/1; /* делает круг */
+  border-radius: 50%;
+  background: linear-gradient(90deg, #005de0 0%, #3388ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* стрелка */
+.landing-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.select-arrow {
+  width: 20px;
+}
+
+.goLogin {
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.reg-container {
+  margin: 0;
+  margin-top: auto; /* 🔥 ВОТ МАГИЯ */
+  padding-bottom: 36px;
+}
+
+.gr {
+  background-color: rgb(0, 93, 224);
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 👈 ключ */
+}
+
+.register-top {
+  display: flex;
+  margin-top: 34px;
+  gap: 12px;
+}
+.register-top .avatar {
+  border: 0.5px solid #929ca8;
+  border-radius: 16px;
+}
+.register-top h2 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 0.94;
+  letter-spacing: 0%;
+  color: #c3c5c9;
+  margin-bottom: 8px;
+}
+.register-top p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0%;
+  color: #a3a5a8;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 8px 0px;
+  border-radius: 8px;
+  border: 1px solid #929ca8;
+  background: transparent;
+  color: #1a1d23;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1;
+  text-indent: 40px;
+  letter-spacing: 0%;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2509803922);
+}
+
+.register-form .row input,
+.register-form .email {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #2a2d35;
+  background: #b1b3b5;
+  color: black;
+}
+
+/* имя + фамилия */
+.register-form .row {
+  display: flex;
+  gap: 8px;
+}
+
+.register-form .row input {
+  width: 50%;
+}
+
+.roles {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: start;
+}
+
+.roles label {
+  cursor: pointer;
+}
+
+/* полностью скрыли input */
+.roles input {
+  display: none;
+}
+
+/* это и есть "кнопка" */
+.roles span {
+  display: block;
+  text-align: center;
+  padding: 8px 18px;
+  border-radius: 4px;
+  background: #646a73;
+  border: 1px solid #2a2d35;
+  color: #ebebeb;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0%;
+  max-width: 78px;
+}
+
+.roles span:hover {
+  border-color: #003580;
+  color: #fff;
+}
+
+/* активная кнопка */
+.roles input:checked + span {
+  background: #1a1d23;
+  color: #fff;
+  border-color: #2a2d35;
+}
+
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #a3a5a8;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.terms span {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+/* убираем дефолт */
+.terms input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%; /* 👈 круг */
+  border: 2px solid #646a73;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 3px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* активное состояние */
+.terms input::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #646a73;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* точка внутри */
+.terms input:checked::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #b1b3b5;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.reg-btn {
+  margin-top: auto;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #646a73;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.login-link a {
+  color: #a3a5a8;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
 }

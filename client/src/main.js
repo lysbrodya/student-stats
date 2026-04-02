@@ -11,77 +11,51 @@ import { renderStudentPage } from "./js/pages/studentPage.js";
 import { renderSprintPage } from "./js/pages/sprintPage.js";
 import { createStudentRow } from "./js/components/studentRow.js";
 import { runCronIfNeeded } from "./js/utils/cron.js";
+import { renderRegisterPage } from "./js/pages/registerPage.js";
+import { renderLoginPage } from "./js/pages/loginPage.js";
+import { renderSelectStudentPage } from "./js/pages/selectStudentPage.js";
+import { supabase } from "./lib/supabaseClient.js";
+import { renderStudentHomePage } from "./js/pages/profilePage.js";
 
-async function renderStreamsPage() {
+async function renderLandingPage() {
   runCronIfNeeded();
-  document.body.classList.add("streams");
+  document.body.classList.add("landing");
   studentsContainer.innerHTML = "";
   sprintsContainer.innerHTML = "";
 
   const wrapper = document.createElement("section");
-  wrapper.classList.add("streams-page");
+  wrapper.classList.add("landing-page");
 
-  wrapper.innerHTML = `
-      <div class="container streams-main-img">
-        <div> <img src="/img/Frame 2087326902.png" alt=""> </div>
-        <h1 class="streams-main-title">Система трекінгу навчального прогресу </br> для студентів Art Osvita</h1>
+  wrapper.innerHTML = ` 
+      <div class="container landing-main-img">
+        <div> <img src="/img/Frame 2087326902.png" alt=""> 
+        </div>
+        <h1 class="landing-main-title">Система трекінгу навчального прогресу </br> для студентів Art Osvita</h1>
       </div>
-    <div class="container">
-<div class="custom-select" id="streamSelect">
-  <div class="select-header">
-    <span class="select-title">Ваш потік</span>
-    <img src="/wite-right.svg" class="select-arrow" />
-  </div>
+      <div class="container reg-container ">
+        <button class="goRegister gr" id="goRegister">Реєстрація   </button>
+        <button class="goRegister goLogin" id="goLogin">Увійти </button>
+      </div>
 
-  <div class="select-dropdown"></div>
-</div>
-    </div>
   `;
 
   studentsContainer.appendChild(wrapper);
 
-  const select = document.getElementById("streamSelect");
-  const header = select.querySelector(".select-header");
-  const dropdown = select.querySelector(".select-dropdown");
-  const title = select.querySelector(".select-title");
-
-  const streams = await getStreams();
-  streams.sort((a, b) => a.number - b.number);
-  streams.forEach((stream) => {
-    const option = document.createElement("div");
-    option.classList.add("select-option");
-    option.textContent = stream.name;
-    console.log(stream);
-    console.log(stream.name);
-
-    option.addEventListener("click", () => {
-      title.textContent = stream.name;
-
-      select.classList.remove("open");
-
-      history.pushState({}, "", `?stream=${stream.id}`);
-      router();
-    });
-
-    dropdown.appendChild(option);
-  });
-  header.addEventListener("click", () => {
-    select.classList.toggle("open");
-  });
-  select.addEventListener("change", (e) => {
-    const streamId = e.target.value;
-
-    if (!streamId) return;
-
-    history.pushState({}, "", `?stream=${streamId}`);
+  document.getElementById("goRegister").onclick = () => {
+    history.pushState({}, "", "?page=register");
     router();
-  });
+  };
+
+  document.getElementById("goLogin").onclick = () => {
+    history.pushState({}, "", "?page=login");
+    router();
+  };
 }
 
 const studentsContainer = document.querySelector("#students");
 const sprintsContainer = document.querySelector("#sprints");
 
-initHeader();
+initHeader(router);
 
 let studentsMap = {};
 
@@ -102,14 +76,61 @@ async function router() {
   studentsContainer.innerHTML = "";
   sprintsContainer.innerHTML = "";
 
-  const params = new URLSearchParams(window.location.search);
+  const { data: userData } = await supabase.auth.getUser();
+  const user = userData.user;
 
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get("page");
   const studentId = params.get("student");
   const sprintName = params.get("sprint");
   const streamId = params.get("stream");
 
+  // 👉 1. НЕ ЗАЛОГИНЕН
+  if (!user) {
+    if (page === "register") {
+      renderRegisterPage(studentsContainer, router, back);
+      return;
+    }
+
+    if (page === "login") {
+      renderLoginPage(studentsContainer, router, back);
+      return;
+    }
+
+    // по умолчанию
+    await renderLandingPage();
+    return;
+  }
+
+  // 👉 2. ЗАЛОГИНЕН — получаем профиль
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  // 👉 3. ЕСЛИ НЕТ student_id → выбор студента
+  if (!profile?.student_id) {
+    renderSelectStudentPage(studentsContainer, router);
+    return;
+  }
+
+  // 👉 4. ЕСЛИ ЗАЛОГИНЕН — НЕ ПУСКАЕМ В LOGIN/REGISTER
+  if (page === "login" || page === "register") {
+    history.replaceState({}, "", "?page=profile");
+    router();
+    return;
+  }
+
+  // 👉 5. ПРОФИЛЬ (главная для студента)
+  if (page === "profile" || (!page && !streamId)) {
+    renderStudentHomePage(studentsContainer, router);
+    return;
+  }
+
+  // 👉 6. STREAM FLOW
   if (!streamId) {
-    await renderStreamsPage(); // 👈 НОВАЯ ГЛАВНАЯ
+    await renderLandingPage();
     return;
   }
 
@@ -117,7 +138,6 @@ async function router() {
     const student = await getStudent(studentId);
 
     if (!student || !student.id) {
-      console.error("STUDENT ERROR:", student);
       studentsContainer.innerHTML = "<h2>Студента не найдено</h2>";
       return;
     }
@@ -131,7 +151,7 @@ async function router() {
     return;
   }
 
-  await renderHome();
+  await renderStudentsSpintsPage();
 }
 // 4️⃣ Навигация
 
@@ -161,22 +181,19 @@ function goSprint(name) {
 }
 // Домой
 function goHome() {
-  const params = new URLSearchParams(window.location.search);
-  const streamId = params.get("stream");
-
-  history.pushState({}, "", `?stream=${streamId}`);
+  history.pushState({}, "", "?page=profile");
   router();
 }
 // 5️⃣ Главная страница
-async function renderHome() {
+async function renderStudentsSpintsPage() {
   document.body.classList.remove("streams");
   const params = new URLSearchParams(window.location.search);
   const streamId = params.get("stream"); // ✅ СНАЧАЛА
-  console.log("streamId", streamId);
+  // console.log("streamId", streamId);
   const streams = await getStreams();
   const currentStream = streams.find((s) => s.id === streamId);
-  console.log("streams", streams);
-  console.log("currentStream", currentStream);
+  // console.log("streams", streams);
+  // console.log("currentStream", currentStream);
 
   let streamName = currentStream.number ? `${currentStream.number} потік` : "";
   let courseName = currentStream.course || "";
@@ -314,17 +331,4 @@ async function renderSprint(sprintName) {
 window.addEventListener("popstate", router);
 // 9️⃣ Запуск приложения
 router();
-console.log("CRON RUN:", new Date().toISOString());
-
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
-function alphabetPosition(text) {
-  return text
-    .split("")
-    .map((word) => alphabet.indexOf(word.toUpperCase()) + 1)
-    .filter((e) => e !== 0)
-    .join(" ");
-}
-
-alphabetPosition("The sunset sets at twelve o' clock.");
-console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+// console.log("CRON RUN:", new Date().toISOString());

@@ -11,7 +11,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
   console.log("student:", student);
 
   const tasks = Array.isArray(tasksData) ? tasksData : [];
-  console.log("tasks:", tasks);
+  // console.log("tasks:", tasks);
 
   const studentTasks = tasks.filter(
     (t) => String(t.student ?? t.student_id) === String(student.id),

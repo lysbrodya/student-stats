@@ -52,11 +52,11 @@
   z-index: 1;
 }
 
-.select-arrow {
-  width: 24px;
-  transition: transform 0.3s;
-  z-index: 1;
-}
+// .select-arrow {
+//   width: 24px;
+//   transition: transform 0.3s;
+//   z-index: 1;
+// }
 
 /* 🔥 поворот стрелки */
 .custom-select.open .select-arrow {
@@ -90,7 +90,4 @@
 
 .select-option:hover {
   background: rgba(255, 255, 255, 0.1);
-}
-.select-arrow {
-  transform: rotate(0deg);
 }
