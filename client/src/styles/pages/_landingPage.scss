@@ -15,14 +15,13 @@
 }
 
 .goRegister {
-  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center; /* текст по центру */
 
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;
+  // margin: 0 auto 24px;
   background-color: rgba(1, 52, 128, 1);
   border-radius: 40px;
   padding: 22px 20px;
@@ -57,9 +56,13 @@
 
 /* стрелка */
 .landing-page {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+body.landing main {
+  padding-bottom: 0;
 }
 .select-arrow {
   width: 20px;
@@ -72,8 +75,8 @@
 }
 .reg-container {
   margin: 0;
-  margin-top: auto; /* 🔥 ВОТ МАГИЯ */
-  padding-bottom: 36px;
+  // margin-top: auto; /* 🔥 ВОТ МАГИЯ */
+  padding-bottom: 16px;
 }
 .gr {
   background-color: rgba(0, 93, 224, 1);

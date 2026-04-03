@@ -20,14 +20,14 @@ export function initHeader(router) {
                   </span></button>
       </div>
   `;
-  // const btn = document.getElementById("logoutBtn");
+  const btn = document.getElementById("logoutBtn");
 
-  // btn.onclick = async () => {
-  //   await supabase.auth.signOut();
+  btn.onclick = async () => {
+    await supabase.auth.signOut();
 
-  //   history.pushState({}, "", "/");
-  //   router();
-  // };
+    history.pushState({}, "", "/");
+    router();
+  };
 
   const logo = document.getElementById("logoLink");
 
