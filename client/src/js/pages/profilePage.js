@@ -15,19 +15,23 @@ export async function renderStudentHomePage(container, router) {
 
   container.innerHTML = `
           <div class="top">
-      <h3>Особиста сторынка</h3>
+      <h3>Особиста сторінка</h3>
       <p>Потоки</p>
     </div>
     <div class="container">
-      <div class="register-top">
+      <div class="profile-top">
         <img src="/img/profile-ava.jpg" alt="avatar" class="avatar" />
         <div>
-      <h2>${student.name}</h2>
-
-      <p>${student.productivity || 0}% Продуктивність</p>
-      <p>${student.efficiency || 0}% Ефективність</p>
-      <p>${student.level || 0}% Рівень підготовки </p>
-      <p>${student.time || 0}% Час до ТК</p>
+          <div>
+            <h2 class="stud-name">${student.name}</h2>
+            <p class="stud-role">СТУДЕНТ</p>
+          </div>
+          <div class="stud-scores">
+            <p><span class="stud-score">${student.productivity || 0}%</span> <span class="stat-title">продуктивність</span></p>
+            <p><span class="stud-score">${student.effectiveness || 0}%</span> <span class="stat-title">ефективність</span></p>
+            <p><span class="stud-score">${student.level || 0}%</span> <span class="stat-title">рівень підготовки</span></p>
+            <p><span class="stud-score">${student.time || 0}%</span> <span class="stat-title">час до ТК</span></p>
+          </div>
         </div>
       </div>
 
@@ -47,6 +51,10 @@ export async function renderStudentHomePage(container, router) {
       <use href="/Vector-3.svg"></use>
     </svg><span>статті</span></button>
       </div>
+      <div>
+        <p class="blue">РЕКОМЕНДОВАНІ МАТЕРІАЛИ</p>
+      </div>
+      
     </div>
   `;
   console.log(student);
