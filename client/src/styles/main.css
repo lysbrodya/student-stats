@@ -1005,6 +1005,16 @@ td {
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2509803922);
 }
 
+.register-form input::-moz-placeholder {
+  color: #a3a5a8;
+  opacity: 0.5;
+}
+
+.register-form input::placeholder {
+  color: #a3a5a8;
+  opacity: 0.5;
+}
+
 .register-form .row input,
 .register-form .email {
   width: 100%;
@@ -1022,6 +1032,16 @@ td {
 
 .register-form .row input {
   width: 50%;
+}
+
+.register-form .row input::-moz-placeholder {
+  color: #343536;
+  opacity: 0.5;
+}
+
+.register-form .row input::placeholder {
+  color: #343536;
+  opacity: 0.5;
 }
 
 .roles {

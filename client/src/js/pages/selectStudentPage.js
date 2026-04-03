@@ -4,8 +4,11 @@ import { supabase } from "../../lib/supabaseClient.js";
 export async function renderSelectStudentPage(container, router) {
   container.innerHTML = `
     <div class="container">
+    <div class="register-top">
+    <div>
       <h2>Обери себе</h2>
-
+      </div>
+    </div>
       <div id="streamSelect" class="custom-select">
         <div class="select-header">
           <span class="select-title">Оберіть потік</span>
@@ -26,6 +29,7 @@ export async function renderSelectStudentPage(container, router) {
 
   streams.forEach((stream) => {
     const option = document.createElement("div");
+    option.classList.add("select-option");
     option.textContent = stream.name;
 
     option.onclick = async () => {
@@ -44,43 +48,29 @@ export async function renderSelectStudentPage(container, router) {
       const freeStudents = students.filter(
         (student) => !takenIds.includes(student.id),
       );
-      studentsList.innerHTML = "";
+
+      title.textContent = "Оберіть студента";
+      dropdown.innerHTML = "";
 
       freeStudents.forEach((student) => {
-        const btn = document.createElement("button");
-        btn.textContent = student.name;
+        const studentOption = document.createElement("div");
+        studentOption.classList.add("select-option");
+        studentOption.textContent = student.name;
 
-        btn.onclick = async () => {
+        studentOption.onclick = async () => {
           const { data: userData } = await supabase.auth.getUser();
           const userId = userData.user.id;
-
-          // ❗ проверка
-          const { data: existing } = await supabase
-            .from("profiles")
-            .select("*")
-            .eq("student_id", student.id)
-            .single();
-
-          if (existing) {
-            alert("Цей студент вже обраний 😬");
-            return;
-          }
 
           await supabase
             .from("profiles")
             .update({ student_id: student.id })
             .eq("id", userId);
 
-          console.log("UPDATED");
-
-          await supabase.auth.refreshSession();
-
-          //   history.pushState({}, "", `?stream=${stream.id}`);
           history.pushState({}, "", "?page=profile");
           router();
         };
 
-        studentsList.appendChild(btn);
+        dropdown.appendChild(studentOption);
       });
 
       //   students.forEach((student) => {
