@@ -1245,6 +1245,12 @@ td {
   color: #c9c9c9;
   margin-bottom: 12px;
 }
+@media (max-width: 400px) {
+  .profile-top .stud-name {
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+}
 .profile-top p {
   font-weight: 400;
   font-size: 14px;
@@ -1270,6 +1276,13 @@ td {
 
 .stud-scores {
   margin-top: 30px;
+}
+@media (max-width: 400px) {
+  .stud-scores {
+    margin-top: 12px;
+  }
+}
+.stud-scores {
   display: flex;
   flex-direction: column;
 }
@@ -1302,4 +1315,10 @@ td {
   letter-spacing: 0%;
   vertical-align: middle;
   color: #6f86a7;
+}
+
+@media (max-width: 400px) {
+  .avatar {
+    width: 140px;
+  }
 }
