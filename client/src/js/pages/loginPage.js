@@ -1,16 +1,24 @@
 import { supabase } from "../../lib/supabaseClient.js";
 
-export function renderLoginPage(container, router) {
+export function renderLoginPage(container, router, back) {
   container.innerHTML = `
-    <div class="container">
-      <h2>Вхід</h2>
-
+    <div class="container register-container">
+             <div class="register-top">
+          <img src="/img/avatar.jpg" alt="avatar" class="avatar" />
+          <div>
+            <h2>Авторизація</h2>
+            <p>Запаліть іскру творчості!</p>
+          </div>
+        </div>
+<div class="register-form">
       <input type="email" id="email" placeholder="Email" />
       <input type="password" id="password" placeholder="Пароль" />
-
-      <button id="loginBtn">Увійти</button>
+</div>
+      <button id="loginBtn" class="goRegister gr reg-btn">Вхід</button>
     </div>
   `;
+
+  container.prepend(back);
 
   document.getElementById("loginBtn").onclick = async () => {
     const email = document.getElementById("email").value;
