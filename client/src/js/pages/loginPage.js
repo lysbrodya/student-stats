@@ -3,13 +3,13 @@ import { supabase } from "../../lib/supabaseClient.js";
 export function renderLoginPage(container, router, back) {
   container.innerHTML = `
     <div class="container register-container">
-             <div class="register-top">
-          <img src="/img/avatar.jpg" alt="avatar" class="avatar" />
-          <div>
-            <h2>Авторизація</h2>
-            <p>Запаліть іскру творчості!</p>
-          </div>
+      <div class="register-top">
+        <img src="/img/avatar.jpg" alt="avatar" class="avatar" />
+        <div>
+          <h2>Авторизація</h2>
+          <p>Запаліть іскру творчості!</p>
         </div>
+      </div>
 <div class="register-form">
       <input type="email" id="email" placeholder="Email" />
       <input type="password" id="password" placeholder="Пароль" />

@@ -14,16 +14,39 @@ export async function renderStudentHomePage(container, router) {
   const student = await getStudent(profile.student_id);
 
   container.innerHTML = `
+          <div class="top">
+      <h3>Особиста сторынка</h3>
+      <p>Потоки</p>
+    </div>
     <div class="container">
+      <div class="register-top">
+        <img src="/img/profile-ava.jpg" alt="avatar" class="avatar" />
+        <div>
       <h2>${student.name}</h2>
 
-      <p>Продуктивність: ${student.productivity || 0}%</p>
-      <p>Ефективність: ${student.efficiency || 0}%</p>
-      <p>Час до ТК: ${student.time || 0}%</p>
-      <p>Рівень: ${student.level || 0}%</p>
+      <p>${student.productivity || 0}% Продуктивність</p>
+      <p>${student.efficiency || 0}% Ефективність</p>
+      <p>${student.level || 0}% Рівень підготовки </p>
+      <p>${student.time || 0}% Час до ТК</p>
+        </div>
+      </div>
 
-      <button id="goDashboard">Система ефективності</button>
-      <button id="goCourses">Курси</button>
+
+      <div class="prof-nav">      
+        <button id="goDashboard" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
+      <use href="../../../public/Vector.svg"></use>
+    </svg><span>СИСТЕМА ЕФЕКТИВНОСТІ</span></button>
+       
+        <button id="goDiary" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
+      <use href="../../../public/Vector-1.svg"></use>
+    </svg><span>РОЗКЛАД, ДОМАШНЄ, ПОДІЇ</span></button>
+     <button id="goCourses" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
+      <use href="../../../public/Vector-2.svg"></use>
+    </svg><span>РЕЙТИНГ</span></button>
+        <button id="goArticles" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
+      <use href="../../../public/Vector-3.svg"></use>
+    </svg><span>статті</span></button>
+      </div>
     </div>
   `;
   console.log(student);
