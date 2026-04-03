@@ -34,17 +34,17 @@ export async function renderStudentHomePage(container, router) {
 
       <div class="prof-nav">      
         <button id="goDashboard" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
-      <use href="../../../public/Vector.svg"></use>
+      <use href="/Vector.svg"></use>
     </svg><span>СИСТЕМА ЕФЕКТИВНОСТІ</span></button>
        
         <button id="goDiary" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
-      <use href="../../../public/Vector-1.svg"></use>
+      <use href="/Vector-1.svg"></use>
     </svg><span>РОЗКЛАД, ДОМАШНЄ, ПОДІЇ</span></button>
      <button id="goCourses" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
-      <use href="../../../public/Vector-2.svg"></use>
+      <use href="/Vector-2.svg"></use>
     </svg><span>РЕЙТИНГ</span></button>
         <button id="goArticles" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
-      <use href="../../../public/Vector-3.svg"></use>
+      <use href="/Vector-3.svg"></use>
     </svg><span>статті</span></button>
       </div>
     </div>
