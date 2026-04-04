@@ -78,10 +78,15 @@ body {
   margin-bottom: auto;
   min-height: 100vh;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
   padding-bottom: 60px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-back {
@@ -108,7 +113,7 @@ main {
 }
 
 .container {
-  margin: 0 auto;
+  margin: 0;
   padding: 0 24px;
 }
 
@@ -925,18 +930,15 @@ td {
 
 /* стрелка */
 .landing-page {
-  min-height: calc(100vh - 58px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-body.landing main {
-  padding-bottom: 0;
+  flex: 1;
 }
 
 .landing-main-img {
   padding-top: 48px;
+  flex: 1;
 }
 
 .select-arrow {
@@ -959,16 +961,29 @@ body.landing main {
   background-color: rgb(0, 93, 224);
 }
 
+.students {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .register-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 👈 ключ */
+  min-height: calc(100vh - 110px); /* 👈 ключ */
 }
 
 .register-top {
   display: flex;
   margin-top: 34px;
   gap: 12px;
+}
+@media screen and (max-width: 380px) {
+  .register-top {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .register-top .avatar {
   border: 0.5px solid #929ca8;

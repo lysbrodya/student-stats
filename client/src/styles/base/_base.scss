@@ -21,13 +21,19 @@ body {
   margin-bottom: auto;
   min-height: 100vh;
   margin: 0;
+  display: flex;
+  flex-direction: column;
   // padding-bottom: 40px;
 }
 
 main {
   // background-color: $background-color-main;
   padding-bottom: 60px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
+
 .btn-back {
   display: flex;
   margin-top: 24px;
