@@ -11,8 +11,8 @@ export function renderLoginPage(container, router, back) {
         </div>
       </div>
 <div class="register-form">
-      <input type="email" id="email" placeholder="Email" />
-      <input type="password" id="password" placeholder="Пароль" />
+      <input type="email" id="email" placeholder="Email" class="dark-input"/>
+      <input type="password" id="password" placeholder="Пароль" class="dark-input"/>
 </div>
       <button id="loginBtn" class="goRegister gr reg-btn">Вхід</button>
     </div>

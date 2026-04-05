@@ -20,14 +20,14 @@ export function initHeader(router) {
                   </span></button>
       </div>
   `;
-  // const btn = document.getElementById("logoutBtn");
+  const btn = document.getElementById("logoutBtn");
 
-  // btn.onclick = async () => {
-  //   await supabase.auth.signOut();
+  btn.onclick = async () => {
+    await supabase.auth.signOut();
 
-  //   history.pushState({}, "", "/");
-  //   router();
-  // };
+    history.pushState({}, "", "/");
+    router();
+  };
 
   const logo = document.getElementById("logoLink");
 
@@ -46,34 +46,3 @@ export function initHeader(router) {
     router();
   };
 }
-// const logoutBtn = document.createElement("button");
-// logoutBtn.textContent = "Вийти";
-
-// export function initHeader(router) {
-//   const header = document.getElementById("header");
-//   if (!header) return;
-
-//   header.innerHTML = `
-//     <div class="header__container container">
-//         <a class="logo" href="/index.html">
-//           <svg class="logo-svg" width="30" height="30">
-//             <use href="/sprite.svg#icon-logo"></use>
-//           </svg>
-//         </a>
-//         <p>ART OSVITA</p>
-//         <button class="mob-menu" id="logoutBtn" type="button">
-//              <span class="icon-line icon-line--t"></span>
-//              <span class="icon-line icon-line--b"></span>
-//         </button>
-//     </div>
-//   `;
-
-//   const btn = document.getElementById("logoutBtn");
-
-//   btn.onclick = async () => {
-//     await supabase.auth.signOut();
-
-//     history.pushState({}, "", "/");
-//     router();
-//   };
-// }

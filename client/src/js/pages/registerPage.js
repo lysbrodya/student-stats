@@ -13,15 +13,15 @@ export function renderRegisterPage(container, router, back) {
 
         <div class="register-form">
           <div class="row">
-            <input type="text" id="name" placeholder="Ім'я" />
-            <input type="text" id="secondname" placeholder="Прізвище" />
+            <input type="text" id="name" placeholder="Ім'я"  class="gray-input"/>
+            <input type="text" id="secondname" placeholder="Прізвище"  class="gray-input"/>
           </div>
-          <input type="email" id="email" placeholder="Email" class="email"/>
-          <input type="password" id="password" placeholder="Пароль" />
+          <input type="email" id="email" placeholder="Email" class="gray-input"/>
+          <input type="password" id="password" placeholder="Пароль"  class="dark-input"/>
           <input
             type="password"
             id="password-confirm"
-            placeholder="Підтвердження паролю"
+            placeholder="Підтвердження паролю" class="dark-input"
           />
           <div class="roles">
             <label>

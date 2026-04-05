@@ -17,18 +17,13 @@
   display: flex;
   flex-direction: column; /* 👈 иконка сверху, текст снизу */
   align-items: flex-start;
-  //   justify-content: space-between;
-
   width: 100%;
   height: 109px;
-
   padding: 16px;
   gap: 8px;
-
   border-radius: 8px;
   border: 0.5px solid rgba(146, 156, 168, 0.5);
-
-  background: rgba(58, 66, 77, 0.5);
+  background: rgba(255, 255, 255, 0.04);
 
   cursor: pointer;
   span {
@@ -42,8 +37,10 @@
     text-align: start;
   }
 }
+
 .prof-nav-btn:hover {
-  background: #003580;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0.5px solid rgba(146, 156, 168, 0.5);
 }
 
 .profile-svg {
@@ -141,5 +138,15 @@
 .avatar {
   @media (max-width: 400px) {
     width: 140px;
+  }
+}
+
+.matireals {
+  .blue {
+    font-weight: 400;
+    font-size: 14px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: rgba(128, 180, 255, 1);
   }
 }

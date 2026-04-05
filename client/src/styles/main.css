@@ -55,6 +55,13 @@ img {
   height: auto;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #b1b3b5 inset !important;
+  -webkit-text-fill-color: black !important;
+  -webkit-transition: background-color 9999s ease-in-out 0s;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 .stats {
   padding: 20px;
   background: #2a4bb9;
@@ -970,7 +977,8 @@ td {
 .register-container {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 110px); /* 👈 ключ */
+  min-height: 100%;
+  flex: 1;
 }
 
 .register-top {
@@ -993,7 +1001,6 @@ td {
   font-weight: 500;
   font-size: 32px;
   line-height: 0.94;
-  letter-spacing: 0%;
   color: #c3c5c9;
   margin-bottom: 8px;
 }
@@ -1001,7 +1008,6 @@ td {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.2;
-  letter-spacing: 0%;
   color: #a3a5a8;
 }
 
@@ -1017,54 +1023,53 @@ td {
   width: 100%;
   padding: 8px 0px;
   border-radius: 8px;
-  border: 1px solid #929ca8;
+  border: 1px solid rgba(255, 255, 255, 0.35);
   background: transparent;
-  color: #1a1d23;
+  color: rgba(163, 165, 168, 0.66);
   font-weight: 300;
   font-size: 16px;
   line-height: 1;
   text-indent: 40px;
-  letter-spacing: 0%;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2509803922);
 }
 
-.register-form input::-moz-placeholder {
-  color: #a3a5a8;
-  opacity: 0.5;
-}
-
-.register-form input::placeholder {
-  color: #a3a5a8;
-  opacity: 0.5;
-}
-
-.register-form .row input,
-.register-form .email {
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid #2a2d35;
-  background: #b1b3b5;
-  color: black;
-}
-
-/* имя + фамилия */
 .register-form .row {
   display: flex;
   gap: 8px;
 }
 
-.register-form .row input {
-  width: 50%;
+.register-form .gray-input {
+  background: #b1b3b5;
+  border: 1px solid #b1b3b5;
+  color: black;
 }
 
-.register-form .row input::-moz-placeholder {
-  color: #343536;
-  opacity: 0.5;
+.register-form input::-moz-placeholder {
+  color: rgba(163, 165, 168, 0.66);
 }
 
-.register-form .row input::placeholder {
-  color: #343536;
-  opacity: 0.5;
+.register-form input::placeholder {
+  color: rgba(163, 165, 168, 0.66);
+}
+
+.register-form .gray-input::-moz-placeholder {
+  color: rgba(52, 53, 54, 0.66);
+}
+
+.register-form .gray-input::placeholder {
+  color: rgba(52, 53, 54, 0.66);
+}
+
+.register-form .dark-input:focus {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.register-form .gray-input:focus {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  outline: none;
 }
 
 .roles {
@@ -1092,12 +1097,10 @@ td {
   background: #646a73;
   border: 1px solid #2a2d35;
   color: #ebebeb;
-  font-size: 12px;
   transition: all 0.2s ease;
   font-weight: 400;
   font-size: 10px;
   line-height: 1;
-  letter-spacing: 0%;
   max-width: 78px;
 }
 
@@ -1108,9 +1111,9 @@ td {
 
 /* активная кнопка */
 .roles input:checked + span {
-  background: #1a1d23;
+  background: rgb(75, 80, 87);
   color: #fff;
-  border-color: #2a2d35;
+  border-color: rgb(75, 80, 87);
 }
 
 .terms {
@@ -1126,7 +1129,6 @@ td {
   font-weight: 300;
   font-size: 12px;
   line-height: 1.35;
-  letter-spacing: 0%;
   vertical-align: middle;
 }
 
@@ -1146,30 +1148,20 @@ td {
   flex-shrink: 0;
 }
 
-/* активное состояние */
 .terms input::after {
   content: "";
   position: absolute;
   width: 12px;
   height: 12px;
-  background: #646a73;
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: #646a73;
 }
 
-/* точка внутри */
 .terms input:checked::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
   background: #b1b3b5;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .reg-btn {
@@ -1183,8 +1175,6 @@ td {
   color: #646a73;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: 0%;
-  text-align: center;
   vertical-align: middle;
 }
 
@@ -1223,7 +1213,7 @@ td {
   gap: 8px;
   border-radius: 8px;
   border: 0.5px solid rgba(146, 156, 168, 0.5);
-  background: rgba(58, 66, 77, 0.5);
+  background: rgba(255, 255, 255, 0.04);
   cursor: pointer;
 }
 .prof-nav-btn span {
@@ -1238,7 +1228,8 @@ td {
 }
 
 .prof-nav-btn:hover {
-  background: #003580;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0.5px solid rgba(146, 156, 168, 0.5);
 }
 
 .profile-svg {
@@ -1344,4 +1335,12 @@ td {
   .avatar {
     width: 140px;
   }
+}
+
+.matireals .blue {
+  font-weight: 400;
+  font-size: 14px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: rgb(128, 180, 255);
 }

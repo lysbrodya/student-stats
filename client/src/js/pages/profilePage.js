@@ -51,7 +51,7 @@ export async function renderStudentHomePage(container, router) {
       <use href="/Vector-3.svg"></use>
     </svg><span>статті</span></button>
       </div>
-      <div>
+      <div class="matireals">
         <p class="blue">РЕКОМЕНДОВАНІ МАТЕРІАЛИ</p>
       </div>
       
