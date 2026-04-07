@@ -2,8 +2,8 @@ export function applyColors() {
   const cells = document.querySelectorAll(".cell");
 
   const colors = {
-    1: "#f5f5f5",
-    2: "#e0e0e0",
+    1: "#e9e9e9",
+    2: "#e9e9e9",
     3: "#cfcfcf",
     4: "#cfcfcf",
     5: "#9e9e9e",
