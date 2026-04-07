@@ -54,16 +54,59 @@ export function renderRegisterPage(container, router, back) {
         </p>
         </div>
     `;
+
+  const roleInputs = document.querySelectorAll('input[name="role"]');
+
+  roleInputs.forEach((input) => {
+    input.addEventListener("click", function () {
+      if (this.dataset.checked === "true") {
+        this.checked = false;
+        this.dataset.checked = "false";
+      } else {
+        roleInputs.forEach((i) => (i.dataset.checked = "false"));
+        this.dataset.checked = "true";
+        this.checked = true;
+      }
+    });
+  });
   container.prepend(back);
   document.body.classList.remove("landing");
+  document.body.classList.add("profile-bcg");
 
   const btn = document.getElementById("registerBtn");
   btn.onclick = async () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const formInputs = document.querySelectorAll(
+      '#email, #password, input[name="role"], #terms',
+    );
 
+    function validateForm() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const role = document.querySelector('input[name="role"]:checked');
+      const terms = document.getElementById("terms").checked;
+
+      btn.disabled = !(email && password && role && terms);
+    }
+
+    formInputs.forEach((el) => {
+      el.addEventListener("input", validateForm);
+      el.addEventListener("change", validateForm);
+    });
     btn.disabled = true;
+    const selectedRole = document.querySelector('input[name="role"]:checked');
+    const termsAccepted = document.getElementById("terms").checked;
 
+    if (!selectedRole) {
+      alert("Оберіть роль 👇");
+      return;
+    }
+
+    if (!termsAccepted) {
+      alert("Потрібно погодитись з умовами 🙏");
+      return;
+    }
     const { data, error } = await supabase.auth.signUp({
       email,
       password,

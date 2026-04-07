@@ -68,7 +68,7 @@ export async function renderStudentPage(studentsContainer, student, back) {
       .join("")}
   </div>
 `;
-
+  document.body.classList.remove("profile-bcg");
   studentsContainer.innerHTML = "";
   const fullName = student.name;
 
@@ -83,14 +83,15 @@ export async function renderStudentPage(studentsContainer, student, back) {
 
   top.innerHTML = `
   <div class="top">
-    <h3>Особиста сторінка</h3>
-    <p>Потоки</p>
+    <h3>Система ефективності</h3>
+    <p>Особиста сторінка</p>
   </div>`;
   undertop.innerHTML = `
   
     <div>
-      <h1>${shortName}</h1>
-      <div class="under_top-item"><p>СТУДЕНТ</p></div>
+      <h1>Система </br>
+ефективності</h1>
+      <div class="under_top-item"><p class="dashbord-name">${shortName}</p><p class="dashbord-course">${student.course}</p></div>
     </div>
 
 <ul class="cats">

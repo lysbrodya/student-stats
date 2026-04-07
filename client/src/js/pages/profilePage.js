@@ -43,13 +43,13 @@ export async function renderStudentHomePage(container, router) {
        
         <button id="goDiary" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
       <use href="/Vector-1.svg"></use>
-    </svg><span>РОЗКЛАД, ДОМАШНЄ, ПОДІЇ</span></button>
+    </svg><span>РОЗКЛАД, ДОМАШНЄ</span></button>
      <button id="goCourses" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
       <use href="/Vector-2.svg"></use>
     </svg><span>РЕЙТИНГ</span></button>
         <button id="goArticles" class="prof-nav-btn">    <svg class="profile-svg" width="24" height="24">
       <use href="/Vector-3.svg"></use>
-    </svg><span>статті</span></button>
+    </svg><span>дорожня мапа</span></button>
       </div>
       <div class="matireals">
         <p class="blue">РЕКОМЕНДОВАНІ МАТЕРІАЛИ</p>
@@ -57,6 +57,7 @@ export async function renderStudentHomePage(container, router) {
       
     </div>
   `;
+  document.body.classList.add("profile-bcg");
   console.log(student);
   document.getElementById("goDashboard").onclick = () => {
     history.pushState(
