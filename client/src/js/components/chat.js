@@ -6,7 +6,7 @@ export function initChat(user) {
 
   // ❌ защита от повторного рендера
   if (document.getElementById("chat-widget")) return;
-  const user_id = user.id;
+  let user_id = user.id;
   // 👉 вставляем в body
   document.body.insertAdjacentHTML("beforeend", getChatTemplate());
 
@@ -221,7 +221,9 @@ export function initChat(user) {
     input.value = "";
 
     showTyping(); // 👈 ВКЛЮЧАЕМ ДО запроса
-
+    if (user_id) {
+      user_id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+    }
     try {
       const res = await fetch("https://n8n.artosvita.com/webhook-test/chat", {
         method: "POST",
@@ -229,7 +231,7 @@ export function initChat(user) {
         body: JSON.stringify({
           message: text,
           user_id: user_id,
-          source: "website",
+          source: "student-stats",
         }),
       });
 
