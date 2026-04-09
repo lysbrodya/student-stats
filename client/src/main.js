@@ -16,6 +16,7 @@ import { renderLoginPage } from "./js/pages/loginPage.js";
 import { renderSelectStudentPage } from "./js/pages/selectStudentPage.js";
 import { supabase } from "./lib/supabaseClient.js";
 import { renderStudentHomePage } from "./js/pages/profilePage.js";
+import { initChat } from "./js/components/chat.js";
 
 async function renderLandingPage() {
   runCronIfNeeded();
@@ -85,6 +86,7 @@ async function router() {
   const sprintName = params.get("sprint");
   const streamId = params.get("stream");
 
+  initChat(user);
   // 👉 1. НЕ ЗАЛОГИНЕН
   if (!user) {
     if (page === "register") {
