@@ -232,6 +232,8 @@ export function initChat(user) {
           message: text,
           user_id: user_id,
           source: "student-stats",
+          message_type: "callback_query",
+          callback_query: { data: lnam },
         }),
       });
 
