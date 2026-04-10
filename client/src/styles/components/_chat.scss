@@ -398,11 +398,11 @@
 /* MOBILE */
 @media (max-width: 480px) {
   #chat-widget {
-    width: calc(100% - 20px);
-    right: 10px;
-    bottom: 10px;
+    width: 100%;
+    right: 0;
+    bottom: 0;
   }
   .chat-box {
-    height: 80vh;
+    height: 100vh;
   }
 }

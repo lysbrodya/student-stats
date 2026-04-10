@@ -1,28 +1,31 @@
 .under_top-item {
-  // border-radius: 8px;
-  // background-color: rgba(217, 217, 217, 0.2);
-  // width: fit-content;
-  // padding: 4px 40px;
   margin-top: 8px;
   display: flex;
-
+  min-width: 0;
+  align-items: flex-start;
+  // flex-wrap: wrap;
+  // display: grid;
+  // grid-template-columns: auto 1px auto;
+  // column-gap: 8px;
+  // align-items: start;
   p {
+    display: flex;
     font-weight: 300;
     font-size: 14px;
     line-height: 1.2;
     text-align: left;
     color: rgba(163, 165, 168, 0.5);
+
+    flex-wrap: wrap;
   }
   .dashbord-name {
+    min-width: 0;
+    max-width: 100%;
     font-weight: 400;
     color: rgba(163, 165, 168, 1);
-    // font-size: 16px;
-    // line-height: 1;
-    // letter-spacing: 0%;
-    // text-align: center;
-    // color: rgba(217, 181, 74, 1);
     padding-right: 8px;
     border-right: 1px solid rgba(255, 255, 255, 0.25);
+    word-break: break-word;
   }
   .dashbord-course {
     padding-left: 8px;
@@ -138,7 +141,6 @@
   }
   li {
     margin-bottom: 8px;
-    padding: 4px 0;
     color: $color-white;
     display: flex;
     align-items: center;

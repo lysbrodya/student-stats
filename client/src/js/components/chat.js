@@ -9,13 +9,16 @@ export function initChat(user) {
   let user_id = user.id;
   // 👉 вставляем в body
   document.body.insertAdjacentHTML("beforeend", getChatTemplate());
-
+  if (user_id) {
+    user_id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+  }
   /* HISTORY STORAGE */
   let chatHistory = JSON.parse(localStorage.getItem("chat_messages") || "[]");
 
   function saveHistory() {
     localStorage.setItem("chat_messages", JSON.stringify(chatHistory));
     localStorage.setItem("chat_history", "1");
+    localStorage.setItem("user_id", user_id);
   }
 
   /* DOM */
@@ -221,9 +224,7 @@ export function initChat(user) {
     input.value = "";
 
     showTyping(); // 👈 ВКЛЮЧАЕМ ДО запроса
-    if (user_id) {
-      user_id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-    }
+
     try {
       const res = await fetch("https://n8n.artosvita.com/webhook-test/chat", {
         method: "POST",
@@ -232,8 +233,8 @@ export function initChat(user) {
           message: text,
           user_id: user_id,
           source: "student-stats",
-          message_type: "callback_query",
-          callback_query: { data: lnam },
+          // message_type: "callback_query",
+          callback_query: { data: "lnam" },
         }),
       });
 

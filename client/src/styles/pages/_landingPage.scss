@@ -57,15 +57,12 @@
 
 /* стрелка */
 .landing-page {
-  // min-height: calc(100vh - 58px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
 }
-// body.landing main {
-//   padding-bottom: 0;
-// }
+
 .landing-main-img {
   padding-top: 48px;
   flex: 1;
@@ -88,18 +85,9 @@
 .gr {
   background-color: rgba(0, 93, 224, 1);
 }
-// .reg-container {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 20px;
-// }
-// .goLogin-circle {
-// }
-// newtest@gmail.com
-// background: #57575740;
+
 .students {
-  // flex: 1;
+  flex: 1; /* 🔥 занимает всё пространство */
   display: flex;
   flex-direction: column;
-  // min-height: 100vh;
 }
