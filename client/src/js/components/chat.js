@@ -4,13 +4,31 @@ export function initChat(user) {
   // ❌ не показываем если нет юзера
   if (!user) return;
 
+  function stringToNumberId(str) {
+    let hash = 0;
+
+    for (let i = 0; i < str.length; i++) {
+      hash = (hash << 5) - hash + str.charCodeAt(i);
+      hash |= 0;
+    }
+
+    return Math.abs(hash);
+  }
   // ❌ защита от повторного рендера
   if (document.getElementById("chat-widget")) return;
-  let user_id = user.id;
-  // 👉 вставляем в body
-  document.body.insertAdjacentHTML("beforeend", getChatTemplate());
-  if (user_id) {
-    user_id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+
+  let raw_user_id = user?.id || null;
+  let bot_user_id = null;
+
+  if (raw_user_id) {
+    localStorage.setItem("user_id", raw_user_id);
+
+    bot_user_id = Number(localStorage.getItem("bot_user_id"));
+
+    if (!bot_user_id) {
+      bot_user_id = stringToNumberId(raw_user_id);
+      localStorage.setItem("bot_user_id", bot_user_id);
+    }
   }
   /* HISTORY STORAGE */
   let chatHistory = JSON.parse(localStorage.getItem("chat_messages") || "[]");
@@ -18,9 +36,8 @@ export function initChat(user) {
   function saveHistory() {
     localStorage.setItem("chat_messages", JSON.stringify(chatHistory));
     localStorage.setItem("chat_history", "1");
-    localStorage.setItem("user_id", user_id);
   }
-
+  document.body.insertAdjacentHTML("beforeend", getChatTemplate());
   /* DOM */
   const chat = document.getElementById("chat-widget");
   const toggle = document.getElementById("chat-toggle");
@@ -31,7 +48,10 @@ export function initChat(user) {
 
   const previewText = document.getElementById("preview-text");
   const startBtn = document.getElementById("startChat");
-
+  if (!previewText || !startBtn) {
+    console.error("Chat DOM not found");
+    return;
+  }
   /* STATE */
   const hasHistory = chatHistory.length > 0;
   let typingEl = null;
@@ -218,8 +238,12 @@ export function initChat(user) {
   async function sendMessage() {
     const input = document.getElementById("input");
     const text = input.value.trim();
-    if (!text) return;
 
+    if (!text) return;
+    if (!bot_user_id) {
+      addMessage("Помилка: не вдалося визначити користувача", "bot");
+      return;
+    }
     addMessage(text, "user");
     input.value = "";
 
@@ -231,7 +255,7 @@ export function initChat(user) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: text,
-          user_id: user_id,
+          user_id: bot_user_id,
           source: "student-stats",
           // message_type: "callback_query",
           callback_query: { data: "lnam" },
