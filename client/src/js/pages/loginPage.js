@@ -23,7 +23,7 @@ export function renderLoginPage(container, router, back) {
   `;
 
   container.prepend(back);
-  document.body.classList.remove("landing");
+  document.body.classList.add("profile-bcg");
 
   document.getElementById("loginBtn").onclick = async () => {
     const email = document.getElementById("email").value;

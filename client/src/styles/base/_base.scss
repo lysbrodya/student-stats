@@ -18,31 +18,33 @@ body.landing {
   background-repeat: no-repeat;
 }
 body.profile-bcg {
-  background: $background-color-profile;
+  background-image: $background-color-profile;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 body {
-  min-height: 100dvh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   font-family: $main-font;
   font-weight: 400;
   font-size: 12px;
   background-color: $background-color-main;
   margin-bottom: auto;
-  min-height: 100vh;
   margin: 0;
-  display: flex;
-  flex-direction: column;
   // padding-bottom: 40px;
-  background-attachment: fixed;
+  // background-attachment: fixed;
 }
 
 main {
   // background-color: $background-color-main;
   padding-bottom: 60px;
-  min-height: calc(100% - 58px);
+  // min-height: calc(100% - 58px);
+  flex: 1;
   display: flex;
   flex-direction: column;
-  // flex: 1;
   // display: flex;
   // flex-direction: column;
 }

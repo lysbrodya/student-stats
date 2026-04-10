@@ -70,7 +70,7 @@ export function renderRegisterPage(container, router, back) {
     });
   });
   container.prepend(back);
-  document.body.classList.remove("landing");
+  // document.body.classList.remove("landing");
   document.body.classList.add("profile-bcg");
 
   const btn = document.getElementById("registerBtn");

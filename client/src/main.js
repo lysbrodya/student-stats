@@ -85,7 +85,7 @@ async function router() {
   const studentId = params.get("student");
   const sprintName = params.get("sprint");
   const streamId = params.get("stream");
-
+  document.body.classList.remove("landing", "profile-bcg");
   initChat(user);
   // 👉 1. НЕ ЗАЛОГИНЕН
   if (!user) {
@@ -196,7 +196,7 @@ async function renderStudentsSpintsPage() {
   const currentStream = streams.find((s) => s.id === streamId);
   // console.log("streams", streams);
   // console.log("currentStream", currentStream);
-
+  document.body.classList.add("profile-bcg");
   let streamName = currentStream.number ? `${currentStream.number} потік` : "";
   let courseName = currentStream.course || "";
 
