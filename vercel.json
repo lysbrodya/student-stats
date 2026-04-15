@@ -18,7 +18,7 @@
   "rewrites": [
     {
       "source": "/api/chat",
-      "destination": "https://n8n.artosvita.com/webhook-test/chat"
+      "destination": "https://n8n.artosvita.com/webhook/chat"
     }
   ]
 }
