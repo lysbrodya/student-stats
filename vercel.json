@@ -14,5 +14,11 @@
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/chat",
+      "destination": "https://n8n.artosvita.com/webhook-test/chat"
+    }
   ]
 }

@@ -250,7 +250,7 @@ export function initChat(user) {
     showTyping(); // 👈 ВКЛЮЧАЕМ ДО запроса
 
     try {
-      const res = await fetch("https://n8n.artosvita.com/webhook-test/chat", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
